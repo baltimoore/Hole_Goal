@@ -3,7 +3,8 @@
 # https://www.youtube.com/watch?v=cJ4FAGSIALo
 extends CharacterBody3D
 
-@export var WALK_VELOCITY: float = 5.0
+@export var WALK_VELOCITY: float = 17.0
+@export var SPRINT_MULTIPLIER: float = 1.75
 @export var JUMP_VELOCITY: float = 15.0
 @export var GRAVITY: float = 40.0
 
@@ -37,6 +38,9 @@ func _physics_process(delta: float) -> void:
 	velocity.x = movement_vector.x * WALK_VELOCITY
 	velocity.z = movement_vector.z * WALK_VELOCITY
 
+	if Input.is_action_pressed("sprint"):
+		velocity.x *= SPRINT_MULTIPLIER
+		velocity.z *= SPRINT_MULTIPLIER
 	move_and_slide()
 
 # rotate body in direction of movement
