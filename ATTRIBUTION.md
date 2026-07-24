@@ -9,7 +9,22 @@
 	#### Godot Engine Logo
 	Author: Andrea Calabró  
 	Source: [godotengine.org : press](https://godotengine.org/press/)  
-	License: [CC BY 4.0 International](https://github.com/godotengine/godot/blob/master/LOGO_LICENSE.txt) 
+	License: [CC BY 4.0 International](https://github.com/godotengine/godot/blob/master/LOGO_LICENSE.txt)
+	
+	#### Various buildings
+	Author: [Kenney](https://www.kenney.nl/)
+	Source: [City Kit](https://kenney-assets.itch.io/city-kit-suburban), [City Builder](https://github.com/KenneyNL/Starter-Kit-City-Builder)
+	License: [MIT License](https://github.com/KenneyNL/Starter-Kit-City-Builder/blob/main/LICENSE.md)
+	
+	#### Acid texture
+	Author: [NekotoArts](https://nekotoarts.itch.io/)
+	Source: [Godot Shaders](https://godotshaders.com/shader/wind-waker-water-no-textures-needed/)
+	License: [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
+
+## Tutorials
+	[Godot 4 Third Person Movement From Scratch](https://www.youtube.com/watch?v=HgYTFYSUJ1I)
+	[How to Orient a Character to Movement](https://www.youtube.com/watch?v=cJ4FAGSIALo)
+	[3d tilemaps](https://www.youtube.com/watch?v=JxbnStn-BIY)
 
 ## Tools
 	#### Godot
