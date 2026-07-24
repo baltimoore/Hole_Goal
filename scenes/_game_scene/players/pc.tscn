@@ -20,11 +20,11 @@ script = ExtResource("1_m1865")
 golfball = ExtResource("2_v2lqe")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=1672590745]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 2.5, 0.7)
 spring_length = 3.0
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=800220361]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+near = 0.5
 
 [node name="collisionShape" type="CollisionShape3D" parent="." unique_id=291306167]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
