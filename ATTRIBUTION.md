@@ -11,7 +11,7 @@
 	Source: [godotengine.org : press](https://godotengine.org/press/)  
 	License: [CC BY 4.0 International](https://github.com/godotengine/godot/blob/master/LOGO_LICENSE.txt)
 	
-	#### Various buildings
+	#### Various low-poly buildings
 	Author: [Kenney](https://www.kenney.nl/)
 	Source: [City Kit](https://kenney-assets.itch.io/city-kit-suburban), [City Builder](https://github.com/KenneyNL/Starter-Kit-City-Builder)
 	License: [MIT License](https://github.com/KenneyNL/Starter-Kit-City-Builder/blob/main/LICENSE.md)

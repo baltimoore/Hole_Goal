@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://byknjntrftjgu"]
+
+[ext_resource type="Script" uid="uid://qrdi0daeiapf" path="res://scenes/_game_scene/players/golfball.gd" id="1_41u24"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_o7jgo"]
+radius = 0.05
+
+[sub_resource type="SphereMesh" id="SphereMesh_o7jgo"]
+radius = 0.05
+height = 0.1
+radial_segments = 32
+rings = 16
+
+[node name="Golfball" type="RigidBody3D" unique_id=794179359]
+collision_layer = 3
+script = ExtResource("1_41u24")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1978407004]
+shape = SubResource("SphereShape3D_o7jgo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=245647206]
+mesh = SubResource("SphereMesh_o7jgo")
+skeleton = NodePath("")

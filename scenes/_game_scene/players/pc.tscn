@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cvcbrs5lnty6a"]
 
 [ext_resource type="Script" uid="uid://cnhfsjuapf8nc" path="res://scenes/_game_scene/players/pc.gd" id="1_m1865"]
+[ext_resource type="PackedScene" uid="uid://byknjntrftjgu" path="res://scenes/_game_scene/players/golfball.tscn" id="2_v2lqe"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o7jgo"]
 
@@ -15,20 +16,22 @@ radius = 0.05
 height = 0.5
 
 [node name="Pc" type="CharacterBody3D" unique_id=1516242983]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_m1865")
+golfball = ExtResource("2_v2lqe")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=1672590745]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 spring_length = 3.0
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=800220361]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 
 [node name="collisionShape" type="CollisionShape3D" parent="." unique_id=291306167]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_o7jgo")
 
 [node name="Model" type="Node3D" parent="." unique_id=708333979]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="bod" type="MeshInstance3D" parent="Model" unique_id=971279261]
 mesh = SubResource("CapsuleMesh_o7jgo")
@@ -38,3 +41,6 @@ skeleton = NodePath("../../collisionShape")
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.59426284, -0.48316532)
 mesh = SubResource("CapsuleMesh_t4ry5")
 skeleton = NodePath("../../collisionShape")
+
+[node name="barrel" type="Node3D" parent="." unique_id=830727062]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.755)

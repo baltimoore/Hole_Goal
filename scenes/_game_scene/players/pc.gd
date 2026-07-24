@@ -8,11 +8,12 @@ extends CharacterBody3D
 @export var JUMP_VELOCITY: float = 15.0
 @export var GRAVITY: float = 40.0
 
-@export var MOUSE_SENSITIVITY_X: float = 0.015
+@export var MOUSE_SENSITIVITY_X: float = 0.010
 @export var MOUSE_SENSITIVITY_Y: float = 0.005
 
 @onready var camera_pivot: Node3D = $SpringArm3D
 @onready var model: Node3D = $Model
+@export var golfball : PackedScene
 
 #capture user mouse in game window
 func _ready() -> void:
@@ -53,9 +54,19 @@ func _process(delta: float) -> void:
 	var target_rotation = atan2(-velocity.x, -velocity.z)
 	model.rotation.y = lerp_angle(model.rotation.y, target_rotation, delta*10)
 
-# camera rotation around player character
 func _input(event: InputEvent) -> void:
+	# camera rotation around player character
 	if (event is InputEventMouseMotion):
 		camera_pivot.rotation.y -= (event.relative.x * MOUSE_SENSITIVITY_X)
 		var vertical_rotation = camera_pivot.rotation.x - (event.relative.y * MOUSE_SENSITIVITY_Y)
 		camera_pivot.rotation.x = clamp(vertical_rotation, -PI/2, PI/2)
+		
+	# shooting action
+	if (event.is_action_pressed("shoot_action")):
+		shoot()
+
+func shoot() -> void:
+	var b = golfball.instantiate()
+	get_tree().root.add_child(b)
+	b.global_position = $barrel.global_position
+	b.launch(-1 * model.global_transform.basis.z)
