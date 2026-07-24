@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cvcbrs5lnty6a"]
+
+[ext_resource type="Script" uid="uid://cnhfsjuapf8nc" path="res://scenes/_game_scene/players/pc.gd" id="1_m1865"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o7jgo"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_o7jgo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o7jgo"]
+albedo_color = Color(0.43529412, 0.30588236, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_t4ry5"]
+material = SubResource("StandardMaterial3D_o7jgo")
+radius = 0.05
+height = 0.5
+
+[node name="Pc" type="CharacterBody3D" unique_id=1516242983]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_m1865")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=1672590745]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+spring_length = 3.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=800220361]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="collisionShape" type="CollisionShape3D" parent="." unique_id=291306167]
+shape = SubResource("CapsuleShape3D_o7jgo")
+
+[node name="Model" type="Node3D" parent="." unique_id=708333979]
+
+[node name="bod" type="MeshInstance3D" parent="Model" unique_id=971279261]
+mesh = SubResource("CapsuleMesh_o7jgo")
+skeleton = NodePath("../../collisionShape")
+
+[node name="head" type="MeshInstance3D" parent="Model" unique_id=2027305423]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.59426284, -0.48316532)
+mesh = SubResource("CapsuleMesh_t4ry5")
+skeleton = NodePath("../../collisionShape")
