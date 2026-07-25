@@ -141,4 +141,4 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -148
 transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -138.35333, 1.4000306, -141.9755)
 
 [node name="Pc" parent="." unique_id=1516242983 instance=ExtResource("7_ktak4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.97343, 11.409687, -90.70319)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109.85227, 7.445012, -108.34691)

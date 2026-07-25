@@ -21,5 +21,6 @@ visible = true
 
 [node name="DescriptionLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/DescriptionMargin" index="0"]
 text = "[center]A poorer part of town, but that doesn't mean they deserve to keep their windows intact.
-Though I [i]guess[/i] there are other places you can try to hit..."
+Though I [i]guess[/i] there are other places you can try to hit...
+And since you have some experience now, I'm sure you can hit the higher windows too. They pay more!"
 fit_content = true

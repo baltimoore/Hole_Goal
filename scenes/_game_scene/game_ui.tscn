@@ -16,7 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://dn02kotqcawyw" path="res://scenes/loading_screen/level_loading_screen.tscn" id="10_g2ndc"]
 [ext_resource type="Script" uid="uid://cl3opf2oe8og3" path="res://scenes/_game_scene/configurable_sub_viewport.gd" id="11_0v86b"]
 [ext_resource type="Script" uid="uid://cxw3fwulk3nkb" path="res://scenes/_game_scene/in_game_ui.gd" id="12_vwk7d"]
-[ext_resource type="PackedScene" uid="uid://b8vsxuuyong8g" path="res://scenes/_game_scene/tutorials/tutorial_1.tscn" id="15_udnps"]
+[ext_resource type="PackedScene" uid="uid://b8vsxuuyong8g" path="res://scenes/_game_scene/tutorials/tutorial_suburbia.tscn" id="15_udnps"]
+[ext_resource type="PackedScene" uid="uid://c3tkuge4hko41" path="res://scenes/_game_scene/tutorials/tutorial_downtown.tscn" id="16_wnh82"]
 
 [node name="GameUI" type="Control" unique_id=951139590]
 layout_mode = 3
@@ -56,7 +57,7 @@ level_won_scene = ExtResource("8_i7m4m")
 
 [node name="SceneLister" type="Node" parent="LevelManager" unique_id=1285798420]
 script = ExtResource("9_rkfhe")
-files = Array[String](["res://scenes/_game_scene/levels/downtown.tscn", "res://scenes/_game_scene/levels/suburbia.tscn"])
+files = Array[String](["res://scenes/_game_scene/levels/suburbia.tscn", "res://scenes/_game_scene/levels/downtown.tscn"])
 directory = "res://scenes/_game_scene/levels"
 
 [node name="LevelLoadingScreen" parent="." unique_id=2003927118 instance=ExtResource("10_g2ndc")]
@@ -64,7 +65,7 @@ visible = false
 
 [node name="TutorialManager" type="Node" parent="." unique_id=1881667297]
 script = ExtResource("1_h8t27")
-tutorial_scenes = Array[PackedScene]([ExtResource("15_udnps")])
+tutorial_scenes = Array[PackedScene]([ExtResource("15_udnps"), ExtResource("16_wnh82")])
 
 [node name="ViewportContainer" type="SubViewportContainer" parent="." unique_id=875298793]
 layout_mode = 1
