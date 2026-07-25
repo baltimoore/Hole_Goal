@@ -52,15 +52,19 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	# Launch when charging and shoot is released (aim must still be held)
-	if event.is_action_released('shoot_action') and Input.is_action_pressed('aim_action'):
-		if charging:
-			laser.visible = false
-			arch.visible = false
-			var direction = (get_parent_node_3d().global_transform.basis.z).normalized()
-			launch_ball(-direction)
-			charging = false
-			power = 0.0
-			rotation.x = 0
+	if     not event.is_action_released('shoot_action') \
+		or not Input.is_action_pressed('aim_action') \
+		or not charging \
+		or _can_shoot() == false:
+		return
+		
+	laser.visible = false
+	arch.visible = false
+	var direction = (get_parent_node_3d().global_transform.basis.z).normalized()
+	launch_ball(-direction)
+	charging = false
+	power = 0.0
+	rotation.x = 0
 
 func launch_ball(direction:Vector3) -> void:
 	var b = ball_scene.instantiate()
@@ -69,6 +73,19 @@ func launch_ball(direction:Vector3) -> void:
 	b.global_position = launch_origin.global_position
 	b.launch(direction, power)
 	SignalManager.golfball_shot.emit()
+	
+	do_i_need_to_remove_stick()
+
+func _can_shoot() -> bool:
+	var level_state = GameState.get_level_state(
+		get_tree().current_scene.get_node('ViewportContainer/ConfigurableSubViewport/Level').scene_file_path
+	)
+	return level_state.can_shoot()
+
+func do_i_need_to_remove_stick() -> void:
+	if _can_shoot(): return
+	#otherwise
+	self.visible = false
 
 # https://www.youtube.com/watch?v=VsT4OoNUEEc
 #func calculate_trajectory(direction, power) -> void:

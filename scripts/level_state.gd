@@ -1,7 +1,7 @@
 class_name LevelState
 extends Resource
 
-@export var targeted_balls := 0
+@export var targeted_balls := -1
 @export var score := 0:
 	set(value):
 		score = value
@@ -23,9 +23,12 @@ extends Resource
 
 @export var tutorial_read : bool = false
 
+func can_shoot() -> bool:
+	return (initial_balls > shots_spent)
+
 func evaluate() -> Dictionary:
 	return {
 		"shots": shots_spent,
+		"score": score,
 		"accuracy": 0.0 if shots_spent == 0 else float(targeted_balls)/float(shots_spent),
-		"score": score
 	}

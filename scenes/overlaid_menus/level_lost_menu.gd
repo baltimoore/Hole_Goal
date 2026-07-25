@@ -12,7 +12,7 @@ func _ready() -> void:
 	display_results(level_state.evaluate())
 		
 func display_results(results: Dictionary) -> void:
-	var text := ""
+	var text := "[center]"
 
 	$MenuPanelContainer/MarginContainer/BoxContainer/TitleMargin/TitleLabel.text = 'Results'
 	text += "[b]Score:[/b] %d\n" % results["score"]

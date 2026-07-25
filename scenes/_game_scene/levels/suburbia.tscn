@@ -47,6 +47,8 @@ subdivide_depth = 50
 [sub_resource type="GDScript" id="GDScript_o7jgo"]
 script/source = "extends Area3D
 
+signal player_died
+
 func _ready() -> void:
 	connect(\"body_entered\", Callable(self, \"_on_body_entered\"))
 
@@ -54,7 +56,9 @@ func _on_body_entered(body: Node) -> void:
 	if body == self:
 		return
 
-	if body is Node3D:
+	if body is CharacterBody3D:
+		emit_signal('player_died')
+	if body is Golfball:
 		body.queue_free()
 "
 
