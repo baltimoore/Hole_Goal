@@ -68,6 +68,7 @@ func launch_ball(direction:Vector3) -> void:
 	# let's take into account the player's movement too
 	b.global_position = launch_origin.global_position
 	b.launch(direction, power)
+	SignalManager.golfball_shot.emit()
 
 # https://www.youtube.com/watch?v=VsT4OoNUEEc
 #func calculate_trajectory(direction, power) -> void:

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://4st6nf3enq46"]
 
 [ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/scripts/pause_menu_controller.gd" id="1_8qp3c"]
+[ext_resource type="Script" uid="uid://ck7cdjnnkm4aq" path="res://scenes/_game_scene/tutorial_manager.gd" id="1_h8t27"]
 [ext_resource type="PackedScene" uid="uid://b51ffq7jnmic5" path="res://scenes/overlaid_menus/pause_menu.tscn" id="2_bmy5n"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/music_players/window_shatter_sfx.tscn" id="3_7aihr"]
 [ext_resource type="PackedScene" uid="uid://7bt0lelo4jme" path="res://addons/maaacks_game_template/base/scenes/music_players/soundeffects_player.tscn" id="4_decrm"]
@@ -15,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dn02kotqcawyw" path="res://scenes/loading_screen/level_loading_screen.tscn" id="10_g2ndc"]
 [ext_resource type="Script" uid="uid://cl3opf2oe8og3" path="res://scenes/_game_scene/configurable_sub_viewport.gd" id="11_0v86b"]
 [ext_resource type="Script" uid="uid://cxw3fwulk3nkb" path="res://scenes/_game_scene/in_game_ui.gd" id="12_vwk7d"]
+[ext_resource type="PackedScene" uid="uid://b8vsxuuyong8g" path="res://scenes/_game_scene/tutorials/tutorial_1.tscn" id="15_udnps"]
 
 [node name="GameUI" type="Control" unique_id=951139590]
 layout_mode = 3
@@ -44,6 +46,7 @@ level_loading_screen = NodePath("../LevelLoadingScreen")
 [node name="LevelManager" type="Node" parent="." unique_id=117372027 node_paths=PackedStringArray("level_loader", "scene_lister")]
 script = ExtResource("5_ascoc")
 level_loader = NodePath("../LevelLoader")
+starting_level_path = "uid://ccppwwuglvave"
 scene_lister = NodePath("SceneLister")
 main_menu_scene = "res://scenes/menus/main_menu/main_menu_with_animations.tscn"
 ending_scene = "uid://bg8qlntq37pp"
@@ -53,11 +56,15 @@ level_won_scene = ExtResource("8_i7m4m")
 
 [node name="SceneLister" type="Node" parent="LevelManager" unique_id=1285798420]
 script = ExtResource("9_rkfhe")
-files = Array[String](["res://scenes/_game_scene/levels/level.tscn"])
+files = Array[String](["res://scenes/_game_scene/levels/suburbia.tscn", "res://scenes/_game_scene/levels/downtown.tscn"])
 directory = "res://scenes/_game_scene/levels"
 
 [node name="LevelLoadingScreen" parent="." unique_id=2003927118 instance=ExtResource("10_g2ndc")]
 visible = false
+
+[node name="TutorialManager" type="Node" parent="." unique_id=1881667297]
+script = ExtResource("1_h8t27")
+tutorial_scenes = Array[PackedScene]([ExtResource("15_udnps")])
 
 [node name="ViewportContainer" type="SubViewportContainer" parent="." unique_id=875298793]
 layout_mode = 1

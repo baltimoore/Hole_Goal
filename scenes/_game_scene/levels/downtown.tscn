@@ -1,15 +1,15 @@
-[gd_scene format=3 uid="uid://kppw7klsb3jj"]
+[gd_scene format=3 uid="uid://dsmx33amgbjir"]
 
-[ext_resource type="PackedScene" uid="uid://cvcbrs5lnty6a" path="res://scenes/_game_scene/players/pc.tscn" id="1_4mll1"]
-[ext_resource type="Script" uid="uid://cjbqlir3qtkwv" path="res://scenes/_game_scene/levels/level.gd" id="1_4vsa2"]
-[ext_resource type="Texture2D" uid="uid://bc4vrl5lvjtkh" path="res://overcast_soil_puresky_4k.exr" id="2_0jr6r"]
-[ext_resource type="Shader" uid="uid://bgcpikg4gwh0p" path="res://resources/acid.gdshader" id="2_gp02g"]
-[ext_resource type="MeshLibrary" uid="uid://blgx6207scxho" path="res://assets/kenney_buildings/Tilemap.meshlib" id="3_gqk4c"]
-[ext_resource type="PackedScene" uid="uid://dcypy6a614rip" path="res://assets/kenney_buildings/suburbia-1_story.tscn" id="5_37r4n"]
-[ext_resource type="PackedScene" uid="uid://t1a2fy3yonsn" path="res://assets/kenney_buildings/suburbia-2_story.tscn" id="6_ynhks"]
+[ext_resource type="Script" uid="uid://cjbqlir3qtkwv" path="res://scenes/_game_scene/levels/suburbia.gd" id="1_q374u"]
+[ext_resource type="Texture2D" uid="uid://bc4vrl5lvjtkh" path="res://overcast_soil_puresky_4k.exr" id="2_csfrp"]
+[ext_resource type="Shader" uid="uid://bgcpikg4gwh0p" path="res://resources/acid.gdshader" id="3_ts5fe"]
+[ext_resource type="MeshLibrary" uid="uid://blgx6207scxho" path="res://assets/kenney_buildings/Tilemap.meshlib" id="4_0rvud"]
+[ext_resource type="PackedScene" uid="uid://dcypy6a614rip" path="res://assets/kenney_buildings/suburbia-1_story.tscn" id="5_bxms3"]
+[ext_resource type="PackedScene" uid="uid://t1a2fy3yonsn" path="res://assets/kenney_buildings/suburbia-2_story.tscn" id="6_baxse"]
+[ext_resource type="PackedScene" uid="uid://cvcbrs5lnty6a" path="res://scenes/_game_scene/players/pc.tscn" id="7_ktak4"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_n4y2n"]
-panorama = ExtResource("2_0jr6r")
+panorama = ExtResource("2_csfrp")
 
 [sub_resource type="Sky" id="Sky_yxeog"]
 sky_material = SubResource("PanoramaSkyMaterial_n4y2n")
@@ -27,7 +27,7 @@ volumetric_fog_sky_affect = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gqk4c"]
 render_priority = 0
-shader = ExtResource("2_gp02g")
+shader = ExtResource("3_ts5fe")
 shader_parameter/WATER_COL = Color(0.4, 0.9, 0.2, 1)
 shader_parameter/WATER2_COL = Color(0.16, 0.65, 0.08, 0.8)
 shader_parameter/FOAM_COL = Color(0.8, 1, 0.55, 0.5)
@@ -62,7 +62,7 @@ func _on_body_entered(body: Node) -> void:
 size = Vector3(1000, 10, 1000)
 
 [node name="Level" type="Node3D" unique_id=273711512]
-script = ExtResource("1_4vsa2")
+script = ExtResource("1_q374u")
 
 [node name="World" type="Node3D" parent="." unique_id=1288294234]
 
@@ -91,7 +91,7 @@ shape = SubResource("BoxShape3D_n4y2n")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 
 [node name="GridMap" type="GridMap" parent="City" unique_id=641033730]
-mesh_library = ExtResource("3_gqk4c")
+mesh_library = ExtResource("4_0rvud")
 cell_size = Vector3(10, 0.6, 10)
 collision_layer = 3
 collision_mask = 3
@@ -102,26 +102,26 @@ metadata/_editor_floor_ = Vector3(0, 2, 0)
 
 [node name="Node3D" type="Node3D" parent="City" unique_id=1471636942]
 
-[node name="Private - 1 story" parent="City/Node3D" unique_id=798092250 instance=ExtResource("5_37r4n")]
+[node name="Private - 1 story" parent="City/Node3D" unique_id=798092250 instance=ExtResource("5_bxms3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85, 1.4, -40)
 
-[node name="Private - 1 story2" parent="City/Node3D" unique_id=286290873 instance=ExtResource("5_37r4n")]
+[node name="Private - 1 story2" parent="City/Node3D" unique_id=286290873 instance=ExtResource("5_bxms3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 1.4, -40)
 
-[node name="Private - 1 story3" parent="City/Node3D" unique_id=749149262 instance=ExtResource("5_37r4n")]
+[node name="Private - 1 story3" parent="City/Node3D" unique_id=749149262 instance=ExtResource("5_bxms3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 1.4, -40)
 
-[node name="Private - 1 story4" parent="City/Node3D" unique_id=1878822009 instance=ExtResource("5_37r4n")]
+[node name="Private - 1 story4" parent="City/Node3D" unique_id=1878822009 instance=ExtResource("5_bxms3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95, 1.4, -40)
 
-[node name="Private - 2 stories" parent="City/Node3D" unique_id=1760507769 instance=ExtResource("6_ynhks")]
+[node name="Private - 2 stories" parent="City/Node3D" unique_id=1760507769 instance=ExtResource("6_baxse")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55, 1.4, -43)
 
-[node name="Private - 2 stories2" parent="City/Node3D" unique_id=1954633298 instance=ExtResource("6_ynhks")]
+[node name="Private - 2 stories2" parent="City/Node3D" unique_id=1954633298 instance=ExtResource("6_baxse")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.4, -43)
 
-[node name="Private - 2 stories3" parent="City/Node3D" unique_id=640458373 instance=ExtResource("6_ynhks")]
+[node name="Private - 2 stories3" parent="City/Node3D" unique_id=640458373 instance=ExtResource("6_baxse")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 1.4, -43)
 
-[node name="Pc" parent="." unique_id=1516242983 instance=ExtResource("1_4mll1")]
+[node name="Pc" parent="." unique_id=1516242983 instance=ExtResource("7_ktak4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20047534, 11.409687, -11.057658)

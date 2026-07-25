@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://kppw7klsb3jj"]
+
+[ext_resource type="Script" uid="uid://cjbqlir3qtkwv" path="res://scenes/_game_scene/levels/suburbia.gd" id="1_pxh7e"]
+[ext_resource type="Texture2D" uid="uid://bc4vrl5lvjtkh" path="res://overcast_soil_puresky_4k.exr" id="2_webfy"]
+[ext_resource type="Shader" uid="uid://bgcpikg4gwh0p" path="res://resources/acid.gdshader" id="3_ged61"]
+[ext_resource type="MeshLibrary" uid="uid://blgx6207scxho" path="res://assets/kenney_buildings/Tilemap.meshlib" id="4_rip5g"]
+[ext_resource type="PackedScene" uid="uid://dcypy6a614rip" path="res://assets/kenney_buildings/suburbia-1_story.tscn" id="5_q333u"]
+[ext_resource type="PackedScene" uid="uid://t1a2fy3yonsn" path="res://assets/kenney_buildings/suburbia-2_story.tscn" id="6_a0ykd"]
+[ext_resource type="PackedScene" uid="uid://cvcbrs5lnty6a" path="res://scenes/_game_scene/players/pc.tscn" id="7_kxn5r"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_n4y2n"]
+panorama = ExtResource("2_webfy")
+
+[sub_resource type="Sky" id="Sky_yxeog"]
+sky_material = SubResource("PanoramaSkyMaterial_n4y2n")
+
+[sub_resource type="Environment" id="Environment_o7jgo"]
+background_mode = 2
+sky = SubResource("Sky_yxeog")
+ambient_light_color = Color(0.9349093, 0.6773985, 0.5011531, 1)
+ambient_light_sky_contribution = 0.3
+tonemap_mode = 3
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1
+volumetric_fog_length = 256.0
+volumetric_fog_sky_affect = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gqk4c"]
+render_priority = 0
+shader = ExtResource("3_ged61")
+shader_parameter/WATER_COL = Color(0.4, 0.9, 0.2, 1)
+shader_parameter/WATER2_COL = Color(0.16, 0.65, 0.08, 0.8)
+shader_parameter/FOAM_COL = Color(0.8, 1, 0.55, 0.5)
+shader_parameter/distortion_speed = 2.0
+shader_parameter/tile = Vector2(5, 5)
+shader_parameter/height = 2.0
+shader_parameter/wave_size = Vector2(2, 2)
+shader_parameter/wave_speed = 1.5
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_t4ry5"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_gqk4c")
+size = Vector2(1000, 1000)
+subdivide_width = 50
+subdivide_depth = 50
+
+[sub_resource type="GDScript" id="GDScript_o7jgo"]
+script/source = "extends Area3D
+
+func _ready() -> void:
+	connect(\"body_entered\", Callable(self, \"_on_body_entered\"))
+
+func _on_body_entered(body: Node) -> void:
+	if body == self:
+		return
+
+	if body is Node3D:
+		body.queue_free()
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n4y2n"]
+size = Vector3(1000, 10, 1000)
+
+[node name="Level" type="Node3D" unique_id=273711512]
+script = ExtResource("1_pxh7e")
+
+[node name="World" type="Node3D" parent="." unique_id=1288294234]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=450589879]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 542.5026, -5.954838)
+light_energy = 0.2
+light_specular = 10.0
+sky_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=1865172724]
+environment = SubResource("Environment_o7jgo")
+
+[node name="Floor" type="MeshInstance3D" parent="World" unique_id=604834490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02573967, 0, -0.0038471222)
+mesh = SubResource("PlaneMesh_t4ry5")
+
+[node name="Area3D" type="Area3D" parent="World/Floor" unique_id=429229329]
+monitorable = false
+script = SubResource("GDScript_o7jgo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Floor/Area3D" unique_id=1520755669]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
+shape = SubResource("BoxShape3D_n4y2n")
+
+[node name="City" type="Node3D" parent="." unique_id=989334999]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="GridMap" type="GridMap" parent="City" unique_id=641033730]
+mesh_library = ExtResource("4_rip5g")
+cell_size = Vector3(10, 0.6, 10)
+collision_layer = 3
+collision_mask = 3
+data = {
+"cells": PackedInt32Array(131062, 65530, 11, 131062, 65531, 11, 131062, 65532, 11, 131062, 65535, 11, 131063, 65530, 11, 131063, 65532, 11, 131063, 65535, 11, 131064, 65530, 11, 131064, 65531, 11, 131064, 65532, 11, 131064, 65535, 11, 131065, 65530, 11, 131065, 65531, 11, 131065, 65532, 11, 131065, 65535, 11, 131066, 65530, 11, 131066, 65531, 11, 131066, 65532, 11, 131066, 65535, 11, 131067, 65530, 11, 131067, 65531, 11, 131067, 65532, 11, 131067, 65535, 11, 131068, 65530, 11, 131068, 65531, 11, 131068, 65532, 11, 131068, 65535, 11, 131069, 65530, 11, 131069, 65531, 11, 131069, 65532, 11, 131069, 65535, 11, 131070, 65530, 11, 131070, 65531, 11, 131070, 65532, 11, 131070, 65535, 11, 131071, 65530, 11, 131071, 65531, 11, 131071, 65532, 11, 131071, 65535, 11, 65536, 65530, 11, 65536, 65531, 11, 65536, 65532, 11, 65536, 65535, 11, 65537, 65530, 11, 65537, 65531, 11, 65537, 65532, 11, 65537, 65535, 11, 65538, 65530, 11, 65538, 65531, 11, 65538, 65532, 11, 65538, 65535, 11, 65539, 65530, 11, 65539, 65531, 11, 65539, 65532, 11, 65539, 65535, 11, 65540, 65530, 11, 65540, 65531, 11, 65540, 65532, 11, 65540, 65535, 11, 65541, 65530, 11, 65541, 65531, 11, 65541, 65532, 11, 65541, 65535, 11, 65542, 65530, 11, 65542, 65531, 11, 65542, 65532, 11, 65542, 65535, 11, 65543, 65530, 11, 65543, 65531, 11, 65543, 65532, 11, 65543, 65535, 11, 65544, 65530, 11, 65544, 65531, 11, 65544, 65532, 11, 65544, 65535, 11, 65545, 65530, 11, 65545, 65531, 11, 65545, 65532, 11, 65545, 65535, 11, 65546, 65530, 11, 65546, 65531, 11, 65546, 65532, 11, 65546, 65535, 11, 131062, 65533, 1441814, 131062, 65534, 1441814, 131063, 65533, 1441815, 131063, 65534, 1441814, 131064, 65533, 1441814, 131064, 65534, 1441814, 131065, 65533, 1441814, 131065, 65534, 1441814, 131066, 65533, 1441814, 131066, 65534, 1441815, 131067, 65533, 1441814, 131067, 65534, 1441814, 131068, 65533, 1441814, 131068, 65534, 1441814, 131069, 65533, 1441815, 131069, 65534, 1441814, 131070, 65533, 1441814, 131070, 65534, 1441814, 131071, 65533, 1441814, 131071, 65534, 1441814, 65536, 65533, 1441814, 65536, 65534, 1441815, 65537, 65533, 1441814, 65537, 65534, 1441814, 65538, 65533, 1441814, 65538, 65534, 1441814, 65539, 65533, 1441815, 65539, 65534, 1441814, 65540, 65533, 1441814, 65540, 65534, 1441814, 65541, 65533, 1441814, 65541, 65534, 1441814, 65542, 65533, 1441814, 65542, 65534, 1441815, 65543, 65533, 1441814, 65543, 65534, 1441814, 65544, 65533, 1441814, 65544, 65534, 1441814, 65545, 65533, 1441815, 65545, 65534, 1441814, 65546, 65533, 1441814, 65546, 65534, 1441814, 131063, 65531, 11, 196598, 65532, 1441807, 196599, 65532, 1441807, 196600, 65532, 1441807, 196601, 65532, 1441807, 196602, 65532, 1441807, 196603, 65532, 1441807, 196604, 65532, 1441807, 196605, 65532, 1441807, 196606, 65532, 1441807, 196607, 65532, 1441807, 131072, 65532, 1441807, 131073, 65532, 1441807, 131074, 65532, 1441807, 131075, 65532, 1441807, 131076, 65532, 1441807, 131077, 65532, 1441807, 131078, 65532, 1441807, 131079, 65532, 1441807, 131080, 65532, 1441807, 131081, 65532, 1441807, 131082, 65532, 1441807, 131082, 65535, 1048591, 131081, 65535, 1048591, 131080, 65535, 1048591, 131079, 65535, 1048591, 131078, 65535, 1048591, 131077, 65535, 1048591, 131076, 65535, 1048591, 131075, 65535, 1048591, 131074, 65535, 1048591, 131073, 65535, 1048591, 131072, 65535, 1048591, 196607, 65535, 1048591, 196606, 65535, 1048591, 196605, 65535, 1048591, 196604, 65535, 1048591, 196603, 65535, 1048591, 196602, 65535, 1048591, 196601, 65535, 1048591, 196600, 65535, 1048591, 196599, 65535, 1048591, 196598, 65535, 1048591)
+}
+metadata/_editor_floor_ = Vector3(0, 2, 0)
+
+[node name="Node3D" type="Node3D" parent="City" unique_id=1471636942]
+
+[node name="Private - 1 story" parent="City/Node3D" unique_id=798092250 instance=ExtResource("5_q333u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85, 1.4, -40)
+
+[node name="Private - 1 story2" parent="City/Node3D" unique_id=286290873 instance=ExtResource("5_q333u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 1.4, -40)
+
+[node name="Private - 1 story3" parent="City/Node3D" unique_id=749149262 instance=ExtResource("5_q333u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 1.4, -40)
+
+[node name="Private - 1 story4" parent="City/Node3D" unique_id=1878822009 instance=ExtResource("5_q333u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95, 1.4, -40)
+
+[node name="Private - 2 stories" parent="City/Node3D" unique_id=1760507769 instance=ExtResource("6_a0ykd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55, 1.4, -43)
+
+[node name="Private - 2 stories2" parent="City/Node3D" unique_id=1954633298 instance=ExtResource("6_a0ykd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.4, -43)
+
+[node name="Private - 2 stories3" parent="City/Node3D" unique_id=640458373 instance=ExtResource("6_a0ykd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 1.4, -43)
+
+[node name="Pc" parent="." unique_id=1516242983 instance=ExtResource("7_kxn5r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20047534, 11.409687, -11.057658)
