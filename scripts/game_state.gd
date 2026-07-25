@@ -7,7 +7,9 @@ const FILE_PATH = "res://scripts/game_state.gd"
 @export var level_states : Dictionary = {}
 @export var current_level_path : String
 @export var continue_level_path : String
-@export var times_played : int
+
+@export var score:int = 0
+@export var balls:int = 10
 
 static func get_level_state(level_state_key : String) -> LevelState:
 	if not has_game_state(): 
@@ -54,7 +56,7 @@ static func set_current_level(level_path : String) -> void:
 
 static func start_game() -> void:
 	var game_state := get_or_create_state()
-	game_state.times_played += 1
+	#game_state.times_played += 1
 	GlobalState.save()
 
 static func continue_game() -> void:

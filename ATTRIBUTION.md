@@ -25,6 +25,11 @@
 	Author: lurpsis
 	Source: [Freesound](https://freesound.org/people/lurpsis/sounds/444136/)
 	License: [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
+	
+	#### Scapholene Font
+	Author: Scapholène
+	Source: [1001 fonts](https://www.1001fonts.com/scapholene-font.html)
+	License: [Scaplholene licence](https://st.1001fonts.net/license/scapholene/LICENSE_Scapholene.txt)
 
 ## Tutorials
 	[Godot 4 Third Person Movement From Scratch](https://www.youtube.com/watch?v=HgYTFYSUJ1I)

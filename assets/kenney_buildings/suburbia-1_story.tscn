@@ -1,9 +1,6 @@
 [gd_scene format=4 uid="uid://dcypy6a614rip"]
 
 [ext_resource type="Script" uid="uid://b0qmkflt8q4l7" path="res://scenes/_game_scene/golfball_areas.gd" id="1_er68y"]
-[ext_resource type="PackedScene" uid="uid://7bt0lelo4jme" path="res://addons/maaacks_game_template/base/scenes/music_players/soundeffects_player.tscn" id="1_rbebk"]
-[ext_resource type="AudioStream" uid="uid://bepv31orjpb41" path="res://resources/audio/glass.mp3" id="2_jhqe3"]
-[ext_resource type="Script" uid="uid://bir1mn1up7kts" path="res://scripts/sound_effect_manager.gd" id="3_qdrj8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7uub7"]
 resource_name = "border"
@@ -163,11 +160,6 @@ size = Vector3(0.10023804, 0.1800293, 0.01)
 size = Vector3(0.039764404, 0.04006958, 0.01)
 
 [node name="Private - 1 story" type="Node3D" unique_id=798092250]
-
-[node name="SoundeffectsPlayer" parent="." unique_id=486552750 instance=ExtResource("1_rbebk")]
-stream = ExtResource("2_jhqe3")
-volume_db = -10.08
-script = ExtResource("3_qdrj8")
 
 [node name="suburbia-1_story" type="MeshInstance3D" parent="." unique_id=45572630]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -4.9, 0, 2.5)

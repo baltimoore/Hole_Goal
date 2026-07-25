@@ -3,8 +3,11 @@
 [ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/scripts/pause_menu_controller.gd" id="1_8qp3c"]
 [ext_resource type="PackedScene" uid="uid://b51ffq7jnmic5" path="res://scenes/overlaid_menus/pause_menu.tscn" id="2_bmy5n"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/music_players/window_shatter_sfx.tscn" id="3_7aihr"]
+[ext_resource type="PackedScene" uid="uid://7bt0lelo4jme" path="res://addons/maaacks_game_template/base/scenes/music_players/soundeffects_player.tscn" id="4_decrm"]
+[ext_resource type="Script" uid="uid://bir1mn1up7kts" path="res://scripts/sound_effect_manager.gd" id="4_h8t27"]
 [ext_resource type="Script" uid="uid://bbymrin0cm704" path="res://addons/maaacks_game_template/base/scripts/level_loader.gd" id="4_onvsj"]
 [ext_resource type="Script" uid="uid://banlkg4od2gdp" path="res://scripts/level_and_state_manager.gd" id="5_ascoc"]
+[ext_resource type="AudioStream" uid="uid://bepv31orjpb41" path="res://resources/audio/glass.mp3" id="5_lensq"]
 [ext_resource type="PackedScene" uid="uid://bifqmlemht8b2" path="res://scenes/overlaid_menus/game_won_menu.tscn" id="6_wr4n6"]
 [ext_resource type="PackedScene" uid="uid://cvr36eb0r2bje" path="res://scenes/overlaid_menus/level_lost_menu.tscn" id="7_ukb12"]
 [ext_resource type="PackedScene" uid="uid://fi7nwkte06g2" path="res://scenes/overlaid_menus/level_won_menu.tscn" id="8_i7m4m"]
@@ -28,6 +31,11 @@ focused_viewport = NodePath("../ViewportContainer/ConfigurableSubViewport")
 
 [node name="BackgroundMusicPlayer" parent="." unique_id=70866919 instance=ExtResource("3_7aihr")]
 
+[node name="SoundeffectsPlayer" parent="BackgroundMusicPlayer" unique_id=486552750 instance=ExtResource("4_decrm")]
+stream = ExtResource("5_lensq")
+volume_db = -10.08
+script = ExtResource("4_h8t27")
+
 [node name="LevelLoader" type="Node" parent="." unique_id=1109732159 node_paths=PackedStringArray("level_container", "level_loading_screen")]
 script = ExtResource("4_onvsj")
 level_container = NodePath("../ViewportContainer/ConfigurableSubViewport")
@@ -36,7 +44,6 @@ level_loading_screen = NodePath("../LevelLoadingScreen")
 [node name="LevelManager" type="Node" parent="." unique_id=117372027 node_paths=PackedStringArray("level_loader", "scene_lister")]
 script = ExtResource("5_ascoc")
 level_loader = NodePath("../LevelLoader")
-starting_level_path = "uid://kppw7klsb3jj"
 scene_lister = NodePath("SceneLister")
 main_menu_scene = "res://scenes/menus/main_menu/main_menu_with_animations.tscn"
 ending_scene = "uid://bg8qlntq37pp"
@@ -62,28 +69,32 @@ grow_vertical = 2
 stretch = true
 metadata/_edit_use_anchors_ = true
 
-[node name="ConfigurableSubViewport" type="SubViewport" parent="ViewportContainer" unique_id=1365807790]
-handle_input_locally = false
-audio_listener_enable_2d = true
-audio_listener_enable_3d = true
-size = Vector2i(1152, 648)
-render_target_update_mode = 4
-script = ExtResource("11_0v86b")
-
-[node name="InGameUI" type="Control" parent="ViewportContainer/ConfigurableSubViewport" unique_id=625790372]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="InGameUI" type="Control" parent="ViewportContainer" unique_id=625790372]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("12_vwk7d")
 
-[node name="ScoreLabel" type="Label" parent="ViewportContainer/ConfigurableSubViewport/InGameUI" unique_id=1251169237]
+[node name="ScoreLabel" type="Label" parent="ViewportContainer/InGameUI" unique_id=1251169237]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 56
 text = "Holes: "
+
+[node name="ScoreLabel2" type="Label" parent="ViewportContainer/InGameUI" unique_id=1524474591]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 57.0
+offset_right = 139.0
+offset_bottom = 114.0
+theme_override_font_sizes/font_size = 56
+text = "Balls: "
+
+[node name="ConfigurableSubViewport" type="SubViewport" parent="ViewportContainer" unique_id=1365807790]
+handle_input_locally = false
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
+size = Vector2i(1200, 720)
+render_target_update_mode = 4
+script = ExtResource("11_0v86b")

@@ -33,8 +33,8 @@ func _process(delta: float) -> void:
 		laser.visible = false
 		arch.visible = true
 		power = min(max_power, power + power_charge_rate * delta)
-		var direction = (get_parent_node_3d().global_transform.basis.z).normalized()
 		rotation.x -= 0.03
+		#var direction = (get_parent_node_3d().global_transform.basis.z).normalized()
 		#calculate_trajectory(direction, power)
 		return
 
@@ -57,12 +57,12 @@ func _input(event: InputEvent) -> void:
 			laser.visible = false
 			arch.visible = false
 			var direction = (get_parent_node_3d().global_transform.basis.z).normalized()
-			launch_ball(-direction, power)
+			launch_ball(-direction)
 			charging = false
 			power = 0.0
 			rotation.x = 0
 
-func launch_ball(direction:Vector3, power:float) -> void:
+func launch_ball(direction:Vector3) -> void:
 	var b = ball_scene.instantiate()
 	get_tree().current_scene.get_node('ViewportContainer/ConfigurableSubViewport/Level/City').add_child(b)
 	# let's take into account the player's movement too
