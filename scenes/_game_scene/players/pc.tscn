@@ -26,6 +26,9 @@ spring_length = 3.0
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=800220361]
 near = 0.5
 
+[node name="barrel" type="Node3D" parent="SpringArm3D/Camera3D" unique_id=830727062]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, -1.5, -1.4549999)
+
 [node name="collisionShape" type="CollisionShape3D" parent="." unique_id=291306167]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_o7jgo")
@@ -41,6 +44,3 @@ skeleton = NodePath("../../collisionShape")
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.59426284, -0.48316532)
 mesh = SubResource("CapsuleMesh_t4ry5")
 skeleton = NodePath("../../collisionShape")
-
-[node name="barrel" type="Node3D" parent="." unique_id=830727062]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.755)

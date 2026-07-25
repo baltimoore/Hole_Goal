@@ -44,7 +44,7 @@ project/assembly_name="gamejam template"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/citycrafter/plugin.cfg", "res://addons/maaacks_game_template/plugin.cfg", "res://addons/theme_gen_save_sync/plugin.cfg")
+enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg", "res://addons/theme_gen_save_sync/plugin.cfg")
 
 [gui]
 

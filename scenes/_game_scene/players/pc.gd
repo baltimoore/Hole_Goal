@@ -13,6 +13,7 @@ extends CharacterBody3D
 
 @onready var camera_pivot: Node3D = $SpringArm3D
 @onready var model: Node3D = $Model
+@onready var barrel: Node3D = $SpringArm3D/Camera3D/barrel
 @export var golfball : PackedScene
 
 #capture user mouse in game window
@@ -31,9 +32,10 @@ func _physics_process(delta: float) -> void:
 		
 	# get input movement intent
 	var input_vector = Input.get_vector("strafe_left","strafe_right","move_forward","move_backward")
+	var camera_yaw = Basis(Vector3.UP, camera_pivot.rotation.y)
 	var movement_vector = (
-		camera_pivot.global_basis * # read camera rotation direction
-		Vector3(input_vector.x, 0, input_vector.y).normalized() # input movement intent
+		#camera_pivot.global_basis # read camera rotation direction
+		(camera_yaw * Vector3(input_vector.x, 0, input_vector.y).normalized()) # input movement intent
 	)
 	
 	velocity.x = movement_vector.x * WALK_VELOCITY
@@ -50,7 +52,7 @@ func _process(delta: float) -> void:
 	if (horizontal_velocity.length_squared() < 0.001): 
 		return #don't care if char don't move
 		 
-	# actually rotate model linearly
+	# rotate model linearly, instead of snapping
 	var target_rotation = atan2(-velocity.x, -velocity.z)
 	model.rotation.y = lerp_angle(model.rotation.y, target_rotation, delta*10)
 
@@ -59,6 +61,7 @@ func _input(event: InputEvent) -> void:
 	if (event is InputEventMouseMotion):
 		camera_pivot.rotation.y -= (event.relative.x * MOUSE_SENSITIVITY_X)
 		var vertical_rotation = camera_pivot.rotation.x - (event.relative.y * MOUSE_SENSITIVITY_Y)
+		# prevent camera from flipping around pc
 		camera_pivot.rotation.x = clamp(vertical_rotation, -PI/2, PI/2)
 		
 	# shooting action
@@ -68,5 +71,5 @@ func _input(event: InputEvent) -> void:
 func shoot() -> void:
 	var b = golfball.instantiate()
 	get_tree().root.add_child(b)
-	b.global_position = $barrel.global_position
+	b.global_position = barrel.global_position
 	b.launch(-1 * model.global_transform.basis.z)
