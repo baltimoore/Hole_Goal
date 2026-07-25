@@ -41,10 +41,5 @@ func explode() -> void:
 	
 	exploding = true
 	
-	# stop all physics immediately, having it explode in-place
-	freeze = true
-	linear_velocity = Vector3.ZERO
-	angular_velocity = Vector3.ZERO
-	
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(1).timeout
 	queue_free()
