@@ -191,6 +191,7 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_ldclg")
 metadata/HoleType = &"Window"
+metadata/HoleValue = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="suburbia-2_story/GolfballAreas" unique_id=1394147029]
 transform = Transform3D(0.99999857, 0, 0, 0, 0.99999857, 0, 0, 0, 0.99999857, -0.39599538, 0.19993314, 0.53999096)

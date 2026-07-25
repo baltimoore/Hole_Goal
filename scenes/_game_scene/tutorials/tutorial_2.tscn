@@ -1,14 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3tkuge4hko41"]
+[gd_scene format=3 uid="uid://c3tkuge4hko41"]
 
 [ext_resource type="PackedScene" uid="uid://wny2d8dvp3ok" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/overlaid_menu.tscn" id="1_sjjon"]
 
-[node name="Tutorial2" instance=ExtResource("1_sjjon")]
+[node name="Tutorial2" unique_id=1665655908 instance=ExtResource("1_sjjon")]
 
 [node name="MenuPanelContainer" parent="." index="1"]
-offset_left = -206.0
-offset_top = -75.0
-offset_right = 215.0
-offset_bottom = 76.0
+offset_left = -237.5
+offset_top = -145.0
+offset_right = 237.5
+offset_bottom = 145.0
 
 [node name="BoxContainer" parent="MenuPanelContainer/MarginContainer" index="0"]
 theme_override_constants/separation = 16
@@ -20,6 +20,6 @@ text = "Tutorial"
 visible = true
 
 [node name="DescriptionLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/DescriptionMargin" index="0"]
-text = "[center]Progress is saved.
-Pressing Continue from the main menu will load the last level played.[/center]"
+text = "[center]A poorer part of town, but that doesn't mean they deserve to keep their windows intact.
+Though I [i]guess[/i] there are other places you can try to hit..."
 fit_content = true

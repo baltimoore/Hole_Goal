@@ -3,3 +3,4 @@ extends Node
 signal golfball_shot
 signal golfball_goal
 signal sfx_trigger_glass_shatter
+signal sfx_trigger_metal_clatter

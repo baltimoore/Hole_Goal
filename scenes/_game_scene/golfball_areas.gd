@@ -12,6 +12,12 @@ func _on_body_entered(body: Node3D) -> void:
 	if body is Golfball:
 		print("golfball has entered!")
 		body.queue_free()
-		SignalManager.golfball_goal.emit(get_meta("HoleType"))
-		if get_meta("HoleType") == &"Window":
-			SignalManager.sfx_trigger_glass_shatter.emit()
+		SignalManager.golfball_goal.emit(get_meta("HoleValue"))
+		
+		match get_meta("HoleType"):
+			&"Window":
+				SignalManager.sfx_trigger_glass_shatter.emit()
+			&"Drainage":
+				SignalManager.sfx_trigger_metal_clatter.emit()
+			_:
+				print("Unmanaged hole type!")

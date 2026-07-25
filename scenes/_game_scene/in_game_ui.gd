@@ -13,8 +13,8 @@ func _ready() -> void:
 	score_label.text = score_text % score
 	balls_label.text = balls_text % balls
 	
-func update_score(hole_type: StringName):
-	score += 1
+func update_score(point_value:int):
+	score += point_value
 	score_label.text = score_text % score
 
 func update_shots() ->void:

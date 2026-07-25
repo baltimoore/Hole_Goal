@@ -26,6 +26,11 @@
 	Source: [Freesound](https://freesound.org/people/lurpsis/sounds/444136/)
 	License: [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
 	
+	#### Metal clatter
+	Author: passAirmangrace
+	Source: [Freesound](https://freesound.org/people/passAirmangrace/sounds/340915/)
+	License: [Attribution 3.0](http://creativecommons.org/licenses/by/3.0/)
+	
 	#### Scapholene Font
 	Author: Scapholène
 	Source: [1001 fonts](https://www.1001fonts.com/scapholene-font.html)
