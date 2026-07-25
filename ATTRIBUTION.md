@@ -35,6 +35,9 @@
 	Author: Scapholène
 	Source: [1001 fonts](https://www.1001fonts.com/scapholene-font.html)
 	License: [Scaplholene licence](https://st.1001fonts.net/license/scapholene/LICENSE_Scapholene.txt)
+	
+	#### Window crack image
+	Source: [FreePNGLogos](https://www.freepnglogos.com/images/crack-31126.html)
 
 ## Tutorials
 	[Godot 4 Third Person Movement From Scratch](https://www.youtube.com/watch?v=HgYTFYSUJ1I)
