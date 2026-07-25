@@ -19,18 +19,18 @@ func _ready() -> void:
 	
 	level_state = GameState.get_level_state(scene_file_path)
 	
-	level_state.balls = 10
+	level_state.initial_balls = 10
 	level_state.score = 0
 	score_changed.emit(level_state.score)
-	balls_changed.emit(level_state.balls)
+	balls_changed.emit(level_state.initial_balls)
 	
 	#if not level_state.tutorial_read:
 	open_tutorials()
 
 func _register_shot()->void:
-	level_state.balls -= 1
+	level_state.shots_spent += 1
 	
-	if level_state.balls <=0 :
+	if level_state.shots_spent >= level_state.initial_balls :
 		# give 5 seconds, in case player might actually be hitting a hole with their last ball
 		await get_tree().create_timer(10.0).timeout
 		emit_signal("level_lost")

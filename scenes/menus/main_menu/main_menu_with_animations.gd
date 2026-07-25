@@ -61,6 +61,9 @@ func _show_continue_if_set() -> void:
 		%ContinueGameButton.show()
 
 func _ready() -> void:
+	# make sure player can interact with overlay menus
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
 	super._ready()
 	_add_level_select_if_set()
 	_show_continue_if_set()
