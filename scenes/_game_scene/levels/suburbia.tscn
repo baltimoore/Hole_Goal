@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://kppw7klsb3jj"]
 
 [ext_resource type="Script" uid="uid://cjbqlir3qtkwv" path="res://scenes/_game_scene/levels/suburbia.gd" id="1_pxh7e"]
-[ext_resource type="Texture2D" uid="uid://bc4vrl5lvjtkh" path="res://overcast_soil_puresky_4k.exr" id="2_webfy"]
+[ext_resource type="Texture2D" uid="uid://bc4vrl5lvjtkh" path="res://assets/images/overcast_soil_puresky_4k.exr" id="2_webfy"]
 [ext_resource type="Shader" uid="uid://bgcpikg4gwh0p" path="res://resources/acid.gdshader" id="3_ged61"]
 [ext_resource type="MeshLibrary" uid="uid://blgx6207scxho" path="res://assets/kenney_buildings/Tilemap.meshlib" id="4_rip5g"]
 [ext_resource type="PackedScene" uid="uid://dcypy6a614rip" path="res://assets/kenney_buildings/suburbia-1_story.tscn" id="5_q333u"]

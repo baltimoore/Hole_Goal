@@ -21,6 +21,10 @@ config/features=PackedStringArray("4.7")
 run/max_fps=60
 config/icon="res://icon.png"
 
+[audio]
+
+buses/default_bus_layout=""
+
 [autoload]
 
 AppConfig="*uid://cjke6crjg14a0"

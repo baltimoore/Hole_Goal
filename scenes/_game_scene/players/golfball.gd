@@ -9,10 +9,13 @@ var _still_timer: float = 0.0
 @export var horiz_speed_per_power := 1
 @export var vertic_speed_per_power := 0.8
 
+var exploding:bool = false
+
 func _ready():
 	pass  # Don't set velocity here
 	
 func _physics_process(delta: float) -> void:
+	if exploding : return
 	# prevent a massive pileup of balls for a buffer overload
 	if linear_velocity.length() < 0.01: 
 		_still_timer += delta
@@ -32,3 +35,16 @@ func launch(direction: Vector3, power: float) -> void:
 		(horiz * horiz_speed) + 
 		(Vector3.UP * vert_speed)
 	)
+
+func explode() -> void:
+	if exploding: return
+	
+	exploding = true
+	
+	# stop all physics immediately, having it explode in-place
+	freeze = true
+	linear_velocity = Vector3.ZERO
+	angular_velocity = Vector3.ZERO
+	
+	await get_tree().create_timer(0.5).timeout
+	queue_free()

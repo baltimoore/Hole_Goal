@@ -9,8 +9,7 @@ func _ready() -> void:
 func _on_body_entered(body: Node3D) -> void:
 	if body == self: return
 	if body is Golfball:
-		print("golfball has entered!")
-		body.queue_free()
+		body.explode()
 		SignalManager.golfball_goal.emit(get_meta("HoleValue"))
 		
 		match get_meta("HoleType"):
