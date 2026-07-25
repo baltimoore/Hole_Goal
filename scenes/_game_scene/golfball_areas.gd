@@ -1,6 +1,7 @@
 extends Area3D
 
-@export var required_group := "golf_balls"
+@export var collision_shape: CollisionShape3D
+@export var replacement_mesh: MeshInstance3D
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
