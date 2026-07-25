@@ -13,11 +13,13 @@ rings = 16
 
 [node name="Golfball" type="RigidBody3D" unique_id=794179359]
 collision_layer = 3
+continuous_cd = true
 script = ExtResource("1_41u24")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1978407004]
 shape = SubResource("SphereShape3D_o7jgo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=245647206]
+layers = 3
 mesh = SubResource("SphereMesh_o7jgo")
 skeleton = NodePath("")

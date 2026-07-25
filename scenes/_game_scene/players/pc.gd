@@ -13,7 +13,7 @@ extends CharacterBody3D
 
 @onready var camera_pivot: Node3D = $SpringArm3D
 @onready var model: Node3D = $Model
-@onready var barrel: Node3D = $SpringArm3D/Camera3D/barrel
+@onready var barrel: Node3D = $Model/head/barrel
 @export var golfball : PackedScene
 
 #capture user mouse in game window
@@ -70,6 +70,6 @@ func _input(event: InputEvent) -> void:
 
 func shoot() -> void:
 	var b = golfball.instantiate()
-	get_tree().root.add_child(b)
+	get_parent().get_node('City').add_child(b)
 	b.global_position = barrel.global_position
 	b.launch(-1 * model.global_transform.basis.z)

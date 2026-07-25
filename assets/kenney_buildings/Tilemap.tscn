@@ -1399,7 +1399,6 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_6pont")
 
 [node name="Private - 1 story" type="Node3D" parent="." unique_id=1166369991]
-visible = false
 
 [node name="house_type01" type="MeshInstance3D" parent="Private - 1 story" unique_id=832651170]
 transform = Transform3D(7.5, 0, 0, 0, 7.5, 0, 0, 0, 7.5, -4.9, 0, 2.5)
@@ -1412,10 +1411,8 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_j21ha")
 
 [node name="GolfballAreas" type="Area3D" parent="Private - 1 story/house_type01" unique_id=626872459]
-visible = false
 collision_layer = 2
 collision_mask = 2
-monitorable = false
 script = ExtResource("6_4fy3h")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Private - 1 story/house_type01/GolfballAreas" unique_id=759729352]
@@ -1589,6 +1586,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_wr2u5")
 
 [node name="Road - Straight Lightposts" type="Node3D" parent="." unique_id=1915094125]
+visible = false
 
 [node name="road-straight-lightposts" type="MeshInstance3D" parent="Road - Straight Lightposts" unique_id=1684782428]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
