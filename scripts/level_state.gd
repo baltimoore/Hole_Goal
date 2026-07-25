@@ -8,7 +8,14 @@ extends Resource
 		targeted_balls+=1
 		SignalManager.score_changed.emit(score)
 
-@export var initial_balls := 0
+@export var initial_balls := 0:
+	set(value):
+		# i'm assuming that setting this value means clearing the rest of the scores
+		initial_balls = value
+		score = 0
+		shots_spent = 0
+		targeted_balls = 0
+		
 @export var shots_spent := 0:
 	set(value):
 		shots_spent = value

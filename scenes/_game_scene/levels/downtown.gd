@@ -2,9 +2,6 @@ extends Node3D
 
 var level_state : LevelState
 
-signal score_changed(value:int)
-signal balls_changed(value:int)
-
 signal level_lost
 signal level_won
 
@@ -21,8 +18,8 @@ func _ready() -> void:
 	
 	level_state.balls = 20
 	level_state.score = 0
-	score_changed.emit(level_state.score)
-	balls_changed.emit(level_state.balls)
+	SignalManager.score_changed.emit(level_state.score)
+	SignalManager.balls_changed.emit(level_state.balls)
 	
 	#if not level_state.tutorial_read:
 	open_tutorials()
@@ -38,4 +35,3 @@ func _register_shot()->void:
 func _register_strike(hole_value:int) -> void:
 	level_state.score += hole_value
 	if level_state.score >=20 : emit_signal("level_won")
-	
