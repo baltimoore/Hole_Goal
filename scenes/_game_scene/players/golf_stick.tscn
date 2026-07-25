@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dbwrkkc2sqojf"]
+
+[ext_resource type="Script" uid="uid://dendhuo6dmbw7" path="res://scenes/_game_scene/players/golf_stick.gd" id="1_4hn54"]
+[ext_resource type="PackedScene" uid="uid://byknjntrftjgu" path="res://scenes/_game_scene/players/golfball.tscn" id="2_fvedh"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_o7jgo"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 1.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pxuw8"]
+transparency = 1
+albedo_color = Color(0.84313726, 0.15686275, 0.16470589, 0.5294118)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_t4ry5"]
+material = SubResource("StandardMaterial3D_pxuw8")
+top_radius = 0.05
+bottom_radius = 0.015
+height = 5.0
+
+[node name="GolfStick" type="Node3D" unique_id=2135807488]
+script = ExtResource("1_4hn54")
+ball_scene = ExtResource("2_fvedh")
+
+[node name="barrel" type="Node3D" parent="." unique_id=1565465586]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2, -0.1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1443021834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7225007, 0)
+mesh = SubResource("CylinderMesh_o7jgo")
+skeleton = NodePath("")
+
+[node name="Laser" type="MeshInstance3D" parent="." unique_id=1532248161]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -2.7)
+mesh = SubResource("CylinderMesh_t4ry5")

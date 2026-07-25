@@ -162,7 +162,7 @@ size = Vector3(0.039764404, 0.04006958, 0.01)
 [node name="Private - 1 story" type="Node3D" unique_id=798092250]
 
 [node name="suburbia-1_story" type="MeshInstance3D" parent="." unique_id=45572630]
-transform = Transform3D(7.5, 0, 0, 0, 7.5, 0, 0, 0, 7.5, -4.9, 0, 2.5)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -4.9, 0, 2.5)
 mesh = SubResource("ArrayMesh_s87ff")
 skeleton = NodePath("")
 
@@ -172,7 +172,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_j21ha")
 
 [node name="GolfballAreas" type="Area3D" parent="suburbia-1_story" unique_id=1272314032]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_er68y")
 

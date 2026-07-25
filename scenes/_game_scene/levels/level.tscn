@@ -105,41 +105,23 @@ metadata/_editor_floor_ = Vector3(0, 2, 0)
 [node name="Private - 1 story" parent="City/Node3D" unique_id=798092250 instance=ExtResource("5_37r4n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85, 1.4, -40)
 
-[node name="Private - 2 stories" parent="City/Node3D" unique_id=1760507769 instance=ExtResource("6_ynhks")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 1.4, -43)
+[node name="Private - 1 story2" parent="City/Node3D" unique_id=286290873 instance=ExtResource("5_37r4n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 1.4, -40)
 
-[node name="Private - 2 stories2" parent="City/Node3D" unique_id=979621077 instance=ExtResource("6_ynhks")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 1.4, -43)
-
-[node name="Private - 2 stories3" parent="City/Node3D" unique_id=1795868019 instance=ExtResource("6_ynhks")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1.4, -43)
-
-[node name="Private - 2 stories4" parent="City/Node3D" unique_id=1195509560 instance=ExtResource("6_ynhks")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1.4, -43)
-
-[node name="Private - 2 stories5" parent="City/Node3D" unique_id=1374893425 instance=ExtResource("6_ynhks")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 1.4, -43)
-
-[node name="Private - 2 stories6" parent="City/Node3D" unique_id=1657837562 instance=ExtResource("6_ynhks")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 1.4, -43)
-
-[node name="Private - 1 story2" parent="City/Node3D" unique_id=1021258296 instance=ExtResource("5_37r4n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55, 1.4, -40)
-
-[node name="Private - 1 story4" parent="City/Node3D" unique_id=1049277586 instance=ExtResource("5_37r4n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.4, -40)
-
-[node name="Private - 1 story5" parent="City/Node3D" unique_id=19067903 instance=ExtResource("5_37r4n")]
+[node name="Private - 1 story3" parent="City/Node3D" unique_id=749149262 instance=ExtResource("5_37r4n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 1.4, -40)
 
-[node name="Private - 1 story6" parent="City/Node3D" unique_id=1050275620 instance=ExtResource("5_37r4n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 1.4, -40)
-
-[node name="Private - 1 story7" parent="City/Node3D" unique_id=104418290 instance=ExtResource("5_37r4n")]
+[node name="Private - 1 story4" parent="City/Node3D" unique_id=1878822009 instance=ExtResource("5_37r4n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95, 1.4, -40)
 
-[node name="Private - 1 story3" parent="City/Node3D" unique_id=1516796012 instance=ExtResource("5_37r4n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 1.4, -40)
+[node name="Private - 2 stories" parent="City/Node3D" unique_id=1760507769 instance=ExtResource("6_ynhks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55, 1.4, -43)
+
+[node name="Private - 2 stories2" parent="City/Node3D" unique_id=1954633298 instance=ExtResource("6_ynhks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.4, -43)
+
+[node name="Private - 2 stories3" parent="City/Node3D" unique_id=640458373 instance=ExtResource("6_ynhks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 1.4, -43)
 
 [node name="Pc" parent="." unique_id=1516242983 instance=ExtResource("1_4mll1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20047534, 11.409687, -11.057658)
