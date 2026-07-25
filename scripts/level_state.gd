@@ -25,7 +25,7 @@ extends Resource
 
 func evaluate() -> Dictionary:
 	return {
-		"shot": shots_spent,
+		"shots": shots_spent,
 		"accuracy": 0.0 if shots_spent == 0 else float(targeted_balls)/float(shots_spent),
 		"score": score
 	}
