@@ -28,4 +28,7 @@ func launch(direction: Vector3, power: float) -> void:
 	var horiz_speed := power * horiz_speed_per_power
 	var vert_speed := power * vertic_speed_per_power
 
-	linear_velocity = horiz * horiz_speed + Vector3.UP * vert_speed
+	linear_velocity = (
+		(horiz * horiz_speed) + 
+		(Vector3.UP * vert_speed)
+	)
