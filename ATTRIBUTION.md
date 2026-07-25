@@ -20,6 +20,11 @@
 	Author: [NekotoArts](https://nekotoarts.itch.io/)
 	Source: [Godot Shaders](https://godotshaders.com/shader/wind-waker-water-no-textures-needed/)
 	License: [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
+	
+	#### Glass Shatter 3
+	Author: lurpsis
+	Source: [Freesound](https://freesound.org/people/lurpsis/sounds/444136/)
+	License: [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
 
 ## Tutorials
 	[Godot 4 Third Person Movement From Scratch](https://www.youtube.com/watch?v=HgYTFYSUJ1I)

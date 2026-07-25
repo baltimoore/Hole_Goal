@@ -1,6 +1,9 @@
 [gd_scene format=4 uid="uid://t1a2fy3yonsn"]
 
+[ext_resource type="PackedScene" uid="uid://7bt0lelo4jme" path="res://addons/maaacks_game_template/base/scenes/music_players/soundeffects_player.tscn" id="1_3cct1"]
 [ext_resource type="Script" uid="uid://b0qmkflt8q4l7" path="res://scenes/_game_scene/golfball_areas.gd" id="1_ldclg"]
+[ext_resource type="AudioStream" uid="uid://bepv31orjpb41" path="res://resources/audio/glass.mp3" id="2_be5om"]
+[ext_resource type="Script" uid="uid://bir1mn1up7kts" path="res://scripts/sound_effect_manager.gd" id="3_7mq45"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j68ph"]
 resource_name = "border"
@@ -173,10 +176,16 @@ size = Vector3(0.04, 0.17, 0.01)
 
 [node name="Private - 2 stories" type="Node3D" unique_id=1760507769]
 
+[node name="SoundeffectsPlayer" parent="." unique_id=486552750 instance=ExtResource("1_3cct1")]
+stream = ExtResource("2_be5om")
+volume_db = -10.08
+script = ExtResource("3_7mq45")
+
 [node name="suburbia-2_story" type="MeshInstance3D" parent="." unique_id=1541517212]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3whp5")
 skeleton = NodePath("")
+metadata/HoleType = &"Window"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="suburbia-2_story" unique_id=1434056208]
 visible = false
@@ -186,9 +195,10 @@ visible = false
 shape = SubResource("ConcavePolygonShape3D_4anai")
 
 [node name="GolfballAreas" type="Area3D" parent="suburbia-2_story" unique_id=1958305973]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_ldclg")
+metadata/HoleType = &"Window"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="suburbia-2_story/GolfballAreas" unique_id=1394147029]
 transform = Transform3D(0.99999857, 0, 0, 0, 0.99999857, 0, 0, 0, 0.99999857, -0.39599538, 0.19993314, 0.53999096)

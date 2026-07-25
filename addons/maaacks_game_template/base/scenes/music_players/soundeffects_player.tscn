@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://7bt0lelo4jme"]
+
+[node name="SoundeffectsPlayer" type="AudioStreamPlayer" unique_id=486552750]
+process_mode = 3
+autoplay = true
+bus = &"SFX"
