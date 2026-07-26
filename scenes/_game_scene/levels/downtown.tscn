@@ -20,7 +20,7 @@ shader_parameter/height = 2.0
 shader_parameter/wave_size = Vector2(2, 2)
 shader_parameter/wave_speed = 1.5
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_csfrp"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_q374u"]
 resource_local_to_scene = true
 material = SubResource("ShaderMaterial_gqk4c")
 size = Vector2(1000, 1000)
@@ -32,7 +32,7 @@ initial_balls = 20
 required_score = 20
 
 [node name="Floor" parent="World" parent_id_path=PackedInt32Array(1288294234) index="2" unique_id=604834490]
-mesh = SubResource("PlaneMesh_csfrp")
+mesh = SubResource("PlaneMesh_q374u")
 
 [node name="GridMap" type="GridMap" parent="City" parent_id_path=PackedInt32Array(989334999) index="0" unique_id=2055216603]
 mesh_library = ExtResource("4_0rvud")

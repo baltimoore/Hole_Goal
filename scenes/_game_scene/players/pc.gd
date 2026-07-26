@@ -22,9 +22,9 @@ extends CharacterBody3D
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	# read sensitivity from game config
-	var MOUSE_SENSITIVITY_X = \
+	MOUSE_SENSITIVITY_X = \
 		float(Config.get_config(AppSettings.INPUT_SECTION, &"MouseSensitivityX", MOUSE_SENSITIVITY_X))
-	var MOUSE_SENSITIVITY_Y = \
+	MOUSE_SENSITIVITY_Y = \
 		float(Config.get_config(AppSettings.INPUT_SECTION, &"MouseSensitivityY", MOUSE_SENSITIVITY_Y))
 
 # movement
