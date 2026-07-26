@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dsmx33amgbjir"]
 
 [ext_resource type="Script" uid="uid://dmbtaek7lsw8q" path="res://scenes/_game_scene/levels/downtown.gd" id="1_ts5fe"]
-[ext_resource type="Texture2D" uid="uid://bc4vrl5lvjtkh" path="res://assets/images/overcast_soil_puresky_4k.exr" id="2_csfrp"]
+[ext_resource type="Texture2D" uid="uid://w48t0m11crvo" path="res://assets/images/overcast_soil_puresky_1k.hdr" id="2_ts5fe"]
 [ext_resource type="Shader" uid="uid://bgcpikg4gwh0p" path="res://resources/acid.gdshader" id="3_ts5fe"]
 [ext_resource type="MeshLibrary" uid="uid://blgx6207scxho" path="res://assets/kenney_buildings/Tilemap.meshlib" id="4_0rvud"]
 [ext_resource type="PackedScene" uid="uid://cdpeiw0vs1bc1" path="res://assets/kenney_buildings/downtown-apartment_4story.tscn" id="5_ts5fe"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://1y0njas86o3w" path="res://assets/kenney_buildings/downtown-apartment_2story.tscn" id="8_baxse"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_n4y2n"]
-panorama = ExtResource("2_csfrp")
+panorama = ExtResource("2_ts5fe")
 
 [sub_resource type="Sky" id="Sky_yxeog"]
 sky_material = SubResource("PanoramaSkyMaterial_n4y2n")

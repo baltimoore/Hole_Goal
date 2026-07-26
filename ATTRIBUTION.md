@@ -38,6 +38,11 @@
 	
 	#### Window crack image
 	Source: [FreePNGLogos](https://www.freepnglogos.com/images/crack-31126.html)
+	
+	#### Skybox
+	Author: Jarod Guest, Sergej Majboroda
+	Source: [Polyhaven](https://polyhaven.com/a/overcast_soil_puresky)
+	License: [CC0](https://polyhaven.com/license)
 
 ## Tutorials
 	[Godot 4 Third Person Movement From Scratch](https://www.youtube.com/watch?v=HgYTFYSUJ1I)
