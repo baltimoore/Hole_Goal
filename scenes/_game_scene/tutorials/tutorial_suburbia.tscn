@@ -4,22 +4,18 @@
 
 [node name="Tutorial1" unique_id=2081105372 instance=ExtResource("1_53amg")]
 
-[node name="MenuPanelContainer" parent="." index="1"]
+[node name="MenuPanelContainer" parent="." index="1" unique_id=1499791589]
 offset_left = -237.5
 offset_top = -125.0
 offset_right = 237.5
 offset_bottom = 125.0
 
-[node name="BoxContainer" parent="MenuPanelContainer/MarginContainer" index="0"]
+[node name="BoxContainer" parent="MenuPanelContainer/MarginContainer" parent_id_path=PackedInt32Array(1329905861) index="0" unique_id=1330360251]
 theme_override_constants/separation = 16
 
-[node name="TitleLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/TitleMargin" index="0"]
+[node name="TitleLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/TitleMargin" parent_id_path=PackedInt32Array(1755711548) index="0" unique_id=111125821]
 text = "Tutorial"
 
-[node name="DescriptionMargin" parent="MenuPanelContainer/MarginContainer/BoxContainer" index="1"]
-visible = true
-
-[node name="DescriptionLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/DescriptionMargin" index="0"]
-text = "[center]You have a shitty golf club and 10 ball-shaped rocks.
-Smash at least 8 windows of these pompous pricks[/center]"
-fit_content = true
+[node name="DescriptionLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/DescriptionMargin" parent_id_path=PackedInt32Array(1224169715) index="0" unique_id=716581379]
+text = "[center]You have a shitty golf club and 15 ball-shaped rocks.
+Smash at least 8 windows of these pompous pricks.[/center]"

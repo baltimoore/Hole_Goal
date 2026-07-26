@@ -5,7 +5,7 @@ extends CharacterBody3D
 
 @export var WALK_VELOCITY: float = 17.0
 @export var SPRINT_MULTIPLIER: float = 1.75
-@export var MIDAIR_STRAFE_MULTIPLIER: float = 0.5
+@export var MIDAIR_STRAFE_MULTIPLIER: float = 0.3
 @export var JUMP_VELOCITY: float = 15.0
 @export var GRAVITY: float = ProjectSettings.get_setting('physics/3d/default_gravity')
 
