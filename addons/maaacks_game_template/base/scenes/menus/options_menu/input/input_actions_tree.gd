@@ -56,6 +56,8 @@ var last_input_readable_name
 func _start_tree() -> void:
 	clear()
 	create_item()
+	print("Tree font size:", get_theme_font_size("font_size", "Tree"))
+	print("Tree font:", get_theme_font("font", "Tree"))
 
 func _add_input_event_as_tree_item(action_name : String, input_event : InputEvent, parent_item : TreeItem) -> void:
 	var input_tree_item : TreeItem = create_item(parent_item)

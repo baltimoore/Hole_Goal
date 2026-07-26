@@ -107,40 +107,40 @@ metadata/_editor_floor_ = Vector3(0, 2, 0)
 [node name="Node3D" type="Node3D" parent="City" unique_id=1968249691]
 
 [node name="Apartment - 4 stories" parent="City/Node3D" unique_id=1253181949 instance=ExtResource("5_ts5fe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -137.71571, 1.3999996, -132.40944)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -138.98346, 1.3999996, -132.58957)
 
 [node name="Apartment - 3 stories" parent="City/Node3D" unique_id=555701219 instance=ExtResource("6_0rvud")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.9039, 1.3999996, -132.26488)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.17165, 1.3999996, -132.445)
 
 [node name="Bodega - 2 stories" parent="City/Node3D" unique_id=2007285758 instance=ExtResource("7_bxms3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.76453, 1.3999972, -132.11613)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -161.03227, 1.3999972, -132.29626)
 
 [node name="Apartment - 4 stories2" parent="City/Node3D" unique_id=615455941 instance=ExtResource("5_ts5fe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169.87314, 1.3999996, -131.95198)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -171.14088, 1.3999996, -132.13211)
 
 [node name="Apartment - 2 stories" parent="City/Node3D" unique_id=2066551046 instance=ExtResource("8_baxse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -180.65077, 1.3999996, -132.09035)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -181.91852, 1.3999996, -132.27048)
 
 [node name="Apartment - 4 stories3" parent="City/Node3D" unique_id=1472064562 instance=ExtResource("5_ts5fe")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -129.44772, 1.4000068, -136.89354)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -130.71547, 1.4000068, -137.07367)
 
 [node name="Bodega - 2 stories2" parent="City/Node3D" unique_id=519884568 instance=ExtResource("7_bxms3")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -129.9793, 1.400002, -146.19331)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -131.24704, 1.400002, -146.37344)
 
 [node name="Apartment - 4 stories4" parent="City/Node3D" unique_id=574324838 instance=ExtResource("5_ts5fe")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -180.21498, 1.400002, -142.26875)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -181.48273, 1.400002, -142.44888)
 
 [node name="Apartment - 3 stories2" parent="City/Node3D" unique_id=181482566 instance=ExtResource("6_0rvud")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -170.8387, 1.400002, -141.22652)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -172.10645, 1.400002, -141.40665)
 
 [node name="Apartment - 4 stories5" parent="City/Node3D" unique_id=23448684 instance=ExtResource("5_ts5fe")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -159.84778, 1.4000306, -141.47852)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -161.11552, 1.4000306, -141.65865)
 
 [node name="Apartment - 3 stories3" parent="City/Node3D" unique_id=536896181 instance=ExtResource("6_0rvud")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -148.54144, 1.4000306, -141.60277)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -149.80919, 1.4000306, -141.7829)
 
 [node name="Bodega - 2 stories3" parent="City/Node3D" unique_id=217253417 instance=ExtResource("7_bxms3")]
-transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -138.35333, 1.4000306, -141.9755)
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -139.62108, 1.4000306, -142.15562)
 
 [node name="Apartment - 2 stories2" parent="City/Node3D" unique_id=61912825 instance=ExtResource("8_baxse")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -84.41252, 1.4000306, -129.13948)

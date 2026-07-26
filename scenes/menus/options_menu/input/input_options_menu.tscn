@@ -702,6 +702,7 @@
 [ext_resource type="Texture2D" uid="uid://cvde107rrbiqr" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_right.svg" id="700_wdwwy"]
 [ext_resource type="Texture2D" uid="uid://dgslui8yf2wxy" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_up.svg" id="701_7mv31"]
 [ext_resource type="Texture2D" uid="uid://dytkor8s2dkjn" path="res://assets/kenney_input-prompts/Steam Deck/Vector/steamdeck_trackpad_vertical.svg" id="702_tujnb"]
+[ext_resource type="Theme" uid="uid://db6g2gdpwv1j8" path="res://resources/themes/paperized-menu.tres" id="703_lp3dg"]
 
 [node name="Controls" unique_id=1573770485 instance=ExtResource("1_i27v5")]
 script = ExtResource("2_hyv0n")
@@ -1849,3 +1850,9 @@ ends_with = ".svg"
 
 [node name="InputActionsList" parent="VBoxContainer/InputMappingContainer" index="1"]
 size_flags_vertical = 1
+theme = ExtResource("703_lp3dg")
+
+[node name="InputActionsTree" parent="VBoxContainer/InputMappingContainer" index="2"]
+theme = null
+scroll_horizontal_enabled = false
+catch_built_in_duplicate_inputs = true
