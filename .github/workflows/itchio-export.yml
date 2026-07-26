@@ -46,6 +46,7 @@ env:
 jobs:
   export-web:
     name: Web Export
+    environment: "itch export"
     runs-on: ubuntu-24.04
     container:
       image: barichello/godot-ci:${{ vars.GODOT_VERSION }}
@@ -78,6 +79,7 @@ jobs:
 
   export-windows:
     name: Windows Export
+    environment: "itch export"
     runs-on: ubuntu-24.04
     container:
       image: barichello/godot-ci:${{ vars.GODOT_VERSION }}
@@ -122,6 +124,7 @@ jobs:
 
   export-linux:
     name: Linux Export
+    environment: "itch export"
     runs-on: ubuntu-24.04
     container:
       image: barichello/godot-ci:${{ vars.GODOT_VERSION }}
@@ -166,6 +169,7 @@ jobs:
 
   export-mac:
     name: macOS Export
+    environment: "itch export"
     runs-on: ubuntu-24.04
     container:
       image: barichello/godot-ci:${{ vars.GODOT_VERSION }}
@@ -198,6 +202,7 @@ jobs:
 
   publish-builds:
     name: Publish Builds
+    environment: "itch export"
     needs: [export-web, export-windows, export-linux, export-mac]
     runs-on: ubuntu-24.04
     env:
