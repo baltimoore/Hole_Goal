@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://br0lcg3rm8dlu"]
+
+[ext_resource type="Script" uid="uid://cjbqlir3qtkwv" path="res://scenes/_game_scene/levels/generic_level.gd" id="1_k4tx7"]
+[ext_resource type="Texture2D" uid="uid://w48t0m11crvo" path="res://assets/images/overcast_soil_puresky_1k.hdr" id="2_70s2f"]
+[ext_resource type="Shader" uid="uid://bgcpikg4gwh0p" path="res://resources/acid.gdshader" id="3_c5rs2"]
+[ext_resource type="Script" uid="uid://cjg834d2nr7dm" path="res://scenes/_game_scene/levels/floor.gd" id="4_lgh4d"]
+[ext_resource type="PackedScene" uid="uid://cvcbrs5lnty6a" path="res://scenes/_game_scene/players/pc.tscn" id="5_b2aum"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_n4y2n"]
+panorama = ExtResource("2_70s2f")
+
+[sub_resource type="Sky" id="Sky_yxeog"]
+sky_material = SubResource("PanoramaSkyMaterial_n4y2n")
+
+[sub_resource type="Environment" id="Environment_o7jgo"]
+background_mode = 2
+sky = SubResource("Sky_yxeog")
+ambient_light_color = Color(0.9349093, 0.6773985, 0.5011531, 1)
+ambient_light_sky_contribution = 0.3
+tonemap_mode = 3
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1
+volumetric_fog_length = 256.0
+volumetric_fog_sky_affect = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gqk4c"]
+render_priority = 0
+shader = ExtResource("3_c5rs2")
+shader_parameter/WATER_COL = Color(0.4, 0.9, 0.2, 1)
+shader_parameter/WATER2_COL = Color(0.16, 0.65, 0.08, 0.8)
+shader_parameter/FOAM_COL = Color(0.8, 1, 0.55, 0.5)
+shader_parameter/distortion_speed = 2.0
+shader_parameter/tile = Vector2(5, 5)
+shader_parameter/height = 2.0
+shader_parameter/wave_size = Vector2(2, 2)
+shader_parameter/wave_speed = 1.5
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_t4ry5"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_gqk4c")
+size = Vector2(1000, 1000)
+subdivide_width = 50
+subdivide_depth = 50
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n4y2n"]
+size = Vector3(1000, 10, 1000)
+
+[node name="Level" type="Node3D" unique_id=273711512]
+script = ExtResource("1_k4tx7")
+
+[node name="World" type="Node3D" parent="." unique_id=1288294234]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=450589879]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 542.5026, -5.954838)
+light_energy = 0.2
+light_specular = 10.0
+sky_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=1865172724]
+environment = SubResource("Environment_o7jgo")
+
+[node name="Floor" type="MeshInstance3D" parent="World" unique_id=604834490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02573967, 0, -0.0038471222)
+mesh = SubResource("PlaneMesh_t4ry5")
+
+[node name="Area3D" type="Area3D" parent="World/Floor" unique_id=429229329]
+monitorable = false
+script = ExtResource("4_lgh4d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Floor/Area3D" unique_id=1520755669]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
+shape = SubResource("BoxShape3D_n4y2n")
+
+[node name="City" type="Node3D" parent="." unique_id=989334999]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="Pc" parent="." unique_id=1516242983 instance=ExtResource("5_b2aum")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20047534, 11.409687, -11.057658)

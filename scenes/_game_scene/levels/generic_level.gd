@@ -5,6 +5,9 @@ var level_state : LevelState
 signal level_lost
 signal level_won
 
+@export var initial_balls:int = 10
+@export var required_score: int = 8
+
 var level_done:bool = false
 
 func open_tutorials() -> void:
@@ -15,11 +18,12 @@ func _ready() -> void:
 	# connect signal listeners
 	SignalManager.golfball_shot.connect(_register_shot)
 	SignalManager.golfball_goal.connect(_register_strike)
+	$World/Floor/Area3D.connect('player_died', _player_dead)
 	
 	level_state = GameState.get_level_state(scene_file_path)
 	GameState.set_current_level(scene_file_path)
 	
-	level_state.initial_balls = 10
+	level_state.initial_balls = initial_balls
 	# no need to emit changes; this already resets it all
 	
 	#if not level_state.tutorial_read:
@@ -36,7 +40,10 @@ func _register_shot()->void:
 
 func _register_strike(hole_value:int) -> void:
 	level_state.score += hole_value
-	if level_state.score >=8 :
+	if level_state.score >= required_score :
 		if ! level_done : 
 			level_done = true
 			emit_signal("level_won")
+			
+func _player_dead() -> void:
+	emit_signal('level_lost')
