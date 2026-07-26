@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c8oll5xhjm0nb"]
 
 [ext_resource type="Script" uid="uid://4gplc5wixqi3" path="res://resources/vfx/explosion_controller.gd" id="1_kv6es"]
-[ext_resource type="AudioStream" uid="uid://bepv31orjpb41" path="res://resources/audio/glass.mp3" id="2_twbao"]
+[ext_resource type="AudioStream" uid="uid://chhckkbkpiiiv" path="res://resources/audio/340915__passairmangrace__metalclang1_loud_bip.wav" id="2_kv6es"]
 
 [sub_resource type="Curve" id="Curve_8gl05"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7505331, 0.97916675), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -100,4 +100,4 @@ process_material = SubResource("ParticleProcessMaterial_7lpqc")
 draw_pass_1 = SubResource("SphereMesh_o7jgo")
 
 [node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=1232520739]
-stream = ExtResource("2_twbao")
+stream = ExtResource("2_kv6es")
