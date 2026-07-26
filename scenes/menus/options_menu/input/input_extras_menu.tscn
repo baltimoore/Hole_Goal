@@ -44,9 +44,9 @@ text = "Mouse Sensitivity X :"
 
 [node name="HSlider" parent="VBoxContainer/MarginContainer/VBoxContainer/MouseSensitivityControl" index="1"]
 min_value = 0.001
-max_value = 2.0
+max_value = 0.1
 step = 0.001
-value = 0.05
+value = 0.003
 tick_count = 8
 
 [node name="MouseSensitivityControl2" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=694862733 instance=ExtResource("2_goqr1")]
@@ -62,9 +62,9 @@ text = "Mouse Sensitivity Y :"
 
 [node name="HSlider" parent="VBoxContainer/MarginContainer/VBoxContainer/MouseSensitivityControl2" index="1"]
 min_value = 0.001
-max_value = 2.0
+max_value = 0.1
 step = 0.001
-value = 0.001
+value = 0.003
 tick_count = 8
 
 [node name="spacer" type="Panel" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=1599258828]

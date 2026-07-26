@@ -15,8 +15,11 @@ extends CharacterBody3D
 @export var SPRING_ARM_LENGTH: float = 3.0
 @export var SPRING_ARM_AIMING: float = 1.5
 
-@onready var SpringArm: Node3D = $SpringArm3D
+@onready var CameraPivot: Node3D = $CameraPivot
+@onready var SpringArm: Node3D = $CameraPivot/SpringArm3D
 @onready var model: Node3D = $Model
+
+var mouse_delta := Vector2.ZERO
 
 #capture user mouse in game window
 func _ready() -> void:
@@ -39,7 +42,7 @@ func _physics_process(delta: float) -> void:
 		
 	# get input movement intent
 	var input_vector = Input.get_vector("strafe_left","strafe_right","move_forward","move_backward")
-	var camera_yaw = Basis(Vector3.UP, SpringArm.rotation.y)
+	var camera_yaw = Basis(Vector3.UP, CameraPivot.rotation.y)
 	
 	# reduce midair mobility
 	if not is_on_floor():
@@ -56,10 +59,20 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-# rotate body in direction of movement
 func _process(delta: float) -> void:
+	#process collected mouse movement
+	CameraPivot.rotation.y -= mouse_delta.x * MOUSE_SENSITIVITY_X
+	SpringArm.rotation.x = clamp(
+		SpringArm.rotation.x - mouse_delta.y * MOUSE_SENSITIVITY_Y,
+		deg_to_rad(-89),
+		deg_to_rad(89)
+	)
+
+	mouse_delta = Vector2.ZERO
+	
+	# rotate body in direction of movement
 	if Input.is_action_pressed("aim_action"):
-		model.rotation.y = lerp_angle(model.rotation.y, SpringArm.rotation.y, delta * 10)
+		model.rotation.y = lerp_angle(model.rotation.y, CameraPivot.rotation.y, delta * 10)
 		return
 		
 	var horizontal_velocity = Vector2(velocity.x, velocity.z)
@@ -73,10 +86,7 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	# camera rotation around player character
 	if (event is InputEventMouseMotion):
-		SpringArm.rotation.y -= (event.relative.x * MOUSE_SENSITIVITY_X)
-		var vertical_rotation = SpringArm.rotation.x - (event.relative.y * MOUSE_SENSITIVITY_Y)
-		# prevent camera from flipping around pc
-		SpringArm.rotation.x = clamp(vertical_rotation, -PI/2, PI/2)
+		mouse_delta += event.relative
 		
 	# aim thing
 	if (event.is_action_pressed('aim_action')):
