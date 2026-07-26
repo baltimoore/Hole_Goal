@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://bjumpvittdvfc"]
+
+[ext_resource type="Script" uid="uid://4gplc5wixqi3" path="res://resources/vfx/glass_explosion.gd" id="1_ixxmm"]
+[ext_resource type="AudioStream" uid="uid://bepv31orjpb41" path="res://resources/audio/glass.mp3" id="2_fi02t"]
+
+[sub_resource type="Curve" id="Curve_8gl05"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7505331, 0.97916675), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_7lpqc"]
+curve = SubResource("Curve_8gl05")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pxuw8"]
+particle_flag_align_y = true
+angle_min = -360.0
+angle_max = 360.00003
+spread = 180.0
+initial_velocity_min = 12.0
+initial_velocity_max = 14.0
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_7lpqc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jltkg"]
+transparency = 1
+albedo_color = Color(0.7294118, 1, 0.88235295, 0.6862745)
+metallic = 1.0
+roughness = 0.5
+emission_enabled = true
+
+[sub_resource type="PrismMesh" id="PrismMesh_ov2f1"]
+material = SubResource("StandardMaterial3D_jltkg")
+left_to_right = 0.0
+size = Vector3(1, 1, 0.01)
+
+[sub_resource type="Gradient" id="Gradient_8gl05"]
+offsets = PackedFloat32Array(0, 0.6185102, 1)
+colors = PackedColorArray(0.78039217, 1, 1, 1, 1, 1, 1, 0.52156866, 1, 1, 1, 0.02745098)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4r3rh"]
+gradient = SubResource("Gradient_8gl05")
+
+[sub_resource type="Curve" id="Curve_sdieg"]
+_data = [Vector2(0, 1), 0.0, 2.0801191, 0, 0, Vector2(0.48187637, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_xxeus"]
+curve = SubResource("Curve_sdieg")
+
+[sub_resource type="Curve" id="Curve_f4jma"]
+_data = [Vector2(0, 0.036458373), 0.0, 0.0, 0, 0, Vector2(0.24946697, 0.99479175), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_uin0r"]
+curve = SubResource("Curve_f4jma")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7lpqc"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+gravity = Vector3(0, 5, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_uin0r")
+color = Color(0.76883537, 0.9990086, 0.9999997, 1)
+color_ramp = SubResource("GradientTexture1D_4r3rh")
+emission_curve = SubResource("CurveTexture_xxeus")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_alk01"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_o7jgo"]
+material = SubResource("StandardMaterial3D_alk01")
+radial_segments = 8
+rings = 4
+
+[node name="GlassExplosion" type="Node3D" unique_id=864294406]
+script = ExtResource("1_ixxmm")
+
+[node name="Debris" type="GPUParticles3D" parent="." unique_id=1274940620]
+emitting = false
+amount = 24
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_pxuw8")
+draw_pass_1 = SubResource("PrismMesh_ov2f1")
+
+[node name="Fire" type="GPUParticles3D" parent="." unique_id=1814662285]
+emitting = false
+amount = 12
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_7lpqc")
+draw_pass_1 = SubResource("SphereMesh_o7jgo")
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=1232520739]
+stream = ExtResource("2_fi02t")

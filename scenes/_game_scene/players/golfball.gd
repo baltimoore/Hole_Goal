@@ -15,7 +15,6 @@ func _ready():
 	pass  # Don't set velocity here
 	
 func _physics_process(delta: float) -> void:
-	if exploding : return
 	# prevent a massive pileup of balls for a buffer overload
 	if linear_velocity.length() < 0.01: 
 		_still_timer += delta
@@ -35,11 +34,3 @@ func launch(direction: Vector3, power: float) -> void:
 		(horiz * horiz_speed) + 
 		(Vector3.UP * vert_speed)
 	)
-
-func explode() -> void:
-	if exploding: return
-	
-	exploding = true
-	
-	await get_tree().create_timer(1).timeout
-	queue_free()

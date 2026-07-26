@@ -44,11 +44,12 @@
 	Source: [Polyhaven](https://polyhaven.com/a/overcast_soil_puresky)
 	License: [CC0](https://polyhaven.com/license)
 
-## Tutorials
+## Godsend Youtube Tutorials
 	[Godot 4 Third Person Movement From Scratch](https://www.youtube.com/watch?v=HgYTFYSUJ1I)
 	[How to Orient a Character to Movement](https://www.youtube.com/watch?v=cJ4FAGSIALo)
 	[3d tilemaps](https://www.youtube.com/watch?v=JxbnStn-BIY)
 	[Trajectory prediction in Godot 4](https://www.youtube.com/watch?v=VsT4OoNUEEc)
+	[Easy explosion effect](https://www.youtube.com/watch?v=RtJJVjjM_-Q)
 
 ## Tools
 	#### Godot
