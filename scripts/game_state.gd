@@ -55,7 +55,7 @@ static func set_current_level(level_path : String) -> void:
 	GlobalState.save()
 
 static func start_game() -> void:
-	var game_state := get_or_create_state()
+	#var game_state := get_or_create_state()
 	#game_state.times_played += 1
 	GlobalState.save()
 

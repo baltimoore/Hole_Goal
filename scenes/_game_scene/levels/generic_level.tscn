@@ -74,5 +74,7 @@ shape = SubResource("BoxShape3D_n4y2n")
 [node name="City" type="Node3D" parent="." unique_id=989334999]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 
+[node name="Boards" type="Node3D" parent="City" unique_id=355417966]
+
 [node name="Pc" parent="." unique_id=1516242983 instance=ExtResource("5_b2aum")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20047534, 11.409687, -11.057658)

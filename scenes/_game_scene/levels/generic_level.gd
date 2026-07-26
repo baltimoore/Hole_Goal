@@ -7,11 +7,10 @@ signal level_won
 
 @export var initial_balls:int = 10
 @export var required_score: int = 8
-
-var level_done:bool = false
+@export var tutorial_index: int = 0
 
 func open_tutorials() -> void:
-	$/root/GameUI/TutorialManager.open_tutorial(0)
+	$/root/GameUI/TutorialManager.open_tutorial(tutorial_index)
 	level_state.tutorial_read = true
 
 func _ready() -> void:
@@ -31,19 +30,18 @@ func _ready() -> void:
 
 func _register_shot()->void:
 	level_state.shots_spent += 1
+	if level_state.shots_spent < level_state.initial_balls :
+		return
+	# give 5 seconds, in case player might actually be hitting a hole with their last ball
+	await get_tree().create_timer(3.0).timeout
 	
-	if level_state.shots_spent >= level_state.initial_balls :
-		# give 5 seconds, in case player might actually be hitting a hole with their last ball
-		await get_tree().create_timer(3.0).timeout
-		# doublecheck player hasn't won yet
-		if !level_done : emit_signal("level_lost")
+	if level_state.score >= required_score :
+		emit_signal("level_won")
+	else:
+		emit_signal("level_lost")
 
 func _register_strike(hole_value:int) -> void:
 	level_state.score += hole_value
-	if level_state.score >= required_score :
-		if ! level_done : 
-			level_done = true
-			emit_signal("level_won")
 			
 func _player_dead() -> void:
 	emit_signal('level_lost')
