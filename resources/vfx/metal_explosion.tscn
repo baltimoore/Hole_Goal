@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://bjumpvittdvfc"]
+[gd_scene format=3 uid="uid://c8oll5xhjm0nb"]
 
-[ext_resource type="Script" uid="uid://4gplc5wixqi3" path="res://resources/vfx/explosion_controller.gd" id="1_ixxmm"]
-[ext_resource type="AudioStream" uid="uid://bepv31orjpb41" path="res://resources/audio/glass.mp3" id="2_fi02t"]
+[ext_resource type="Script" uid="uid://4gplc5wixqi3" path="res://resources/vfx/explosion_controller.gd" id="1_kv6es"]
+[ext_resource type="AudioStream" uid="uid://bepv31orjpb41" path="res://resources/audio/glass.mp3" id="2_twbao"]
 
 [sub_resource type="Curve" id="Curve_8gl05"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7505331, 0.97916675), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -21,17 +21,18 @@ scale_min = 0.5
 scale_max = 1.5
 scale_curve = SubResource("CurveTexture_7lpqc")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jltkg"]
-transparency = 1
-albedo_color = Color(0.7294118, 1, 0.88235295, 0.6862745)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rly11"]
+albedo_color = Color(0.5330367, 0.5330367, 0.5330367, 1)
 metallic = 1.0
 roughness = 0.5
 emission_enabled = true
+emission = Color(0.24840015, 0.24840018, 0.24840015, 1)
+emission_energy_multiplier = 2.0
 
-[sub_resource type="PrismMesh" id="PrismMesh_ov2f1"]
-material = SubResource("StandardMaterial3D_jltkg")
-left_to_right = 0.0
-size = Vector3(1, 1, 0.01)
+[sub_resource type="CylinderMesh" id="CylinderMesh_0m478"]
+material = SubResource("StandardMaterial3D_rly11")
+top_radius = 0.1
+bottom_radius = 0.0
 
 [sub_resource type="Gradient" id="Gradient_8gl05"]
 offsets = PackedFloat32Array(0, 0.6185102, 1)
@@ -79,7 +80,7 @@ radial_segments = 8
 rings = 4
 
 [node name="GlassExplosion" type="Node3D" unique_id=864294406]
-script = ExtResource("1_ixxmm")
+script = ExtResource("1_kv6es")
 
 [node name="Debris" type="GPUParticles3D" parent="." unique_id=1274940620]
 emitting = false
@@ -88,7 +89,7 @@ lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_pxuw8")
-draw_pass_1 = SubResource("PrismMesh_ov2f1")
+draw_pass_1 = SubResource("CylinderMesh_0m478")
 
 [node name="Fire" type="GPUParticles3D" parent="." unique_id=1814662285]
 emitting = false
@@ -99,4 +100,4 @@ process_material = SubResource("ParticleProcessMaterial_7lpqc")
 draw_pass_1 = SubResource("SphereMesh_o7jgo")
 
 [node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=1232520739]
-stream = ExtResource("2_fi02t")
+stream = ExtResource("2_twbao")

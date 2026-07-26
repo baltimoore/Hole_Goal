@@ -4,6 +4,7 @@ extends Area3D
 @export var replacement_mesh: MeshInstance3D
 
 const GlassShatterAnimation = preload("res://resources/vfx/glass_explosion.tscn")
+const MetalShatterAnimation = preload("res://resources/vfx/metal_explosion.tscn")
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
@@ -18,7 +19,7 @@ func _on_body_entered(body: Node3D) -> void:
 			&"Window":
 				explosion = GlassShatterAnimation.instantiate()
 			&"Drainage":
-				SignalManager.sfx_trigger_metal_clatter.emit()
+				explosion = MetalShatterAnimation.instantiate()
 			_:
 				print("Unmanaged hole type!")
 		

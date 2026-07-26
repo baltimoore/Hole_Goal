@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://qrdi0daeiapf" path="res://scenes/_game_scene/players/golfball.gd" id="1_41u24"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n4y2n"]
+friction = 0.7
+bounce = 0.8
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_o7jgo"]
 radius = 0.05
 
@@ -13,6 +17,7 @@ rings = 16
 
 [node name="Golfball" type="RigidBody3D" unique_id=794179359]
 collision_layer = 3
+physics_material_override = SubResource("PhysicsMaterial_n4y2n")
 continuous_cd = true
 script = ExtResource("1_41u24")
 
