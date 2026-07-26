@@ -23,7 +23,7 @@ config/icon="res://icon.png"
 
 [audio]
 
-buses/default_bus_layout=""
+buses/default_bus_layout="uid://dlo5inop6ahho"
 
 [autoload]
 
@@ -41,9 +41,8 @@ gdscript/warnings/directory_rules={
 
 [display]
 
-window/size/viewport_width=1200
+window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/borderless=true
 window/ios/suppress_ui_gesture=false
 
 [dotnet]
@@ -118,10 +117,10 @@ locale/translations=PackedStringArray("res://addons/maaacks_game_template/base/t
 
 [maaacks_game_template]
 
-copy_path="res://"
 disable_update_check=false
 disable_install_wizard=true
 disable_install_audio_busses=true
+copy_path="res://"
 
 [physics]
 

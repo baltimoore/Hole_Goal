@@ -391,12 +391,15 @@ expand_mode = 4
 stretch_mode = 2
 
 [node name="VersionLabel" parent="VersionMargin" index="0"]
-text = "v0.0.1"
+text = "v0.0.2"
 
 [node name="TitleLabel" parent="MenuContainer/BoxContainer/TitleContainer/TitleMargin" index="0"]
 text = "Any Hole's a Goal"
 
 [node name="SubTitleLabel" parent="MenuContainer/BoxContainer/TitleContainer" index="1"]
+visible = false
+
+[node name="ContinueGameButton" parent="MenuContainer/BoxContainer/MenuButtonsBoxContainer" index="1"]
 visible = false
 
 [node name="LevelSelectContainer" type="MarginContainer" parent="." index="9" unique_id=1271815928]

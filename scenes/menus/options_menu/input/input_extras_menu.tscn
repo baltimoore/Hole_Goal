@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://xiw2eon3cmvg"]
+[gd_scene format=3 uid="uid://xiw2eon3cmvg"]
 
 [ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_game_template/base/scripts/capture_focus.gd" id="1_1v5x4"]
 [ext_resource type="PackedScene" uid="uid://cl416gdb1fgwr" path="res://addons/maaacks_game_template/base/scenes/menus/options_menu/option_control/slider_option_control.tscn" id="2_goqr1"]
 
-[node name="Inputs" type="MarginContainer"]
+[node name="Inputs" type="MarginContainer" unique_id=1830493025]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,7 +12,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1151463632]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -20,46 +20,88 @@ theme_override_constants/separation = 8
 script = ExtResource("1_1v5x4")
 search_depth = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=236225561]
 layout_mode = 2
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=245537163]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="MouseSensitivityControl" parent="VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_goqr1")]
+[node name="MouseSensitivityControl" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=1603419728 instance=ExtResource("2_goqr1")]
 layout_mode = 2
-option_name = "Mouse Sensitivity"
+option_name = "Mouse Sensitivity X"
 option_section = 1
-key = "MouseSensitivity"
+key = "MouseSensitivityX"
 section = "InputSettings"
+default_value = 0.01
 
 [node name="OptionLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/MouseSensitivityControl" index="0"]
-text = "Mouse Sensitivity :"
+text = "Mouse Sensitivity X :"
 
 [node name="HSlider" parent="VBoxContainer/MarginContainer/VBoxContainer/MouseSensitivityControl" index="1"]
-min_value = 0.25
+min_value = 0.001
 max_value = 2.0
+step = 0.001
+value = 0.05
 tick_count = 8
 
-[node name="JoypadSensitivityControl" parent="VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_goqr1")]
+[node name="MouseSensitivityControl2" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=694862733 instance=ExtResource("2_goqr1")]
 layout_mode = 2
-option_name = "Joypad Sensitivity"
+option_name = "Mouse Sensitivity Y"
 option_section = 1
-key = "JoypadSensitivity"
+key = "MouseSensitivityY"
+section = "InputSettings"
+default_value = 0.005
+
+[node name="OptionLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/MouseSensitivityControl2" index="0"]
+text = "Mouse Sensitivity Y :"
+
+[node name="HSlider" parent="VBoxContainer/MarginContainer/VBoxContainer/MouseSensitivityControl2" index="1"]
+min_value = 0.001
+max_value = 2.0
+step = 0.001
+value = 0.001
+tick_count = 8
+
+[node name="spacer" type="Panel" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=1599258828]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="JoypadSensitivityControl" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=581637086 instance=ExtResource("2_goqr1")]
+layout_mode = 2
+option_name = "Joypad Sensitivity X"
+option_section = 1
+key = "JoypadSensitivityX"
 section = "InputSettings"
 
 [node name="OptionLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/JoypadSensitivityControl" index="0"]
-text = "Joypad Sensitivity :"
+text = "Joypad Sensitivity X :"
 
 [node name="HSlider" parent="VBoxContainer/MarginContainer/VBoxContainer/JoypadSensitivityControl" index="1"]
 min_value = 0.25
 max_value = 2.0
 tick_count = 8
 
+[node name="JoypadSensitivityControl2" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=119351358 instance=ExtResource("2_goqr1")]
+layout_mode = 2
+option_name = "Joypad Sensitivity Y"
+option_section = 1
+key = "JoypadSensitivityY"
+section = "InputSettings"
+
+[node name="OptionLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/JoypadSensitivityControl2" index="0"]
+text = "Joypad Sensitivity Y :"
+
+[node name="HSlider" parent="VBoxContainer/MarginContainer/VBoxContainer/JoypadSensitivityControl2" index="1"]
+min_value = 0.25
+max_value = 2.0
+tick_count = 8
+
 [editable path="VBoxContainer/MarginContainer/VBoxContainer/MouseSensitivityControl"]
+[editable path="VBoxContainer/MarginContainer/VBoxContainer/MouseSensitivityControl2"]
 [editable path="VBoxContainer/MarginContainer/VBoxContainer/JoypadSensitivityControl"]
+[editable path="VBoxContainer/MarginContainer/VBoxContainer/JoypadSensitivityControl2"]
